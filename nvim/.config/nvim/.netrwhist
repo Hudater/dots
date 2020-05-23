@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/putin/.zsh'
+let g:netrw_dirhist_6='/home/putin/Gits'
+let g:netrw_dirhist_5='/sys/devices/pci0000:00/0000:00:01.0/backlight/acpi_video0/subsystem/acpi_video0'
+let g:netrw_dirhist_4='/sys/devices/pci0000:00/0000:00:01.0/backlight/acpi_video0/subsystem'
+let g:netrw_dirhist_3='/home/putin/.cache/yay/light-git/pkg'
+let g:netrw_dirhist_2='/sys/devices/pci0000:00/0000:00:01.0'
+let g:netrw_dirhist_1='/sys/class/backlight/acpi_video0'
