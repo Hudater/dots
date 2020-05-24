@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/putin/GitIt/dots/redshift'
 let g:netrw_dirhist_7='/home/putin/.zsh'
 let g:netrw_dirhist_6='/home/putin/Gits'
 let g:netrw_dirhist_5='/sys/devices/pci0000:00/0000:00:01.0/backlight/acpi_video0/subsystem/acpi_video0'

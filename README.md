@@ -1,8 +1,11 @@
 # Dotfiles for my Arch Linux System
 
-Using Awesome-git for WM, Arch as Distro and many more things like ZSH, Kitty etc
+Using Awesome-git and i3-gaps for WM, Arch as Distro and many more things like ZSH, Kitty etc
 
-Uses GNU Stow to manage Dotfiles
+##Notes
+I am not updating powerlevel10k theme, some zsh plugins etc because I need to use git modules to make sure those things get pushed to github. It's not recommended to do things like this so please look into it if you wish to use my dotsfiles.
+
+Using GNU Stow to manage Dotfiles
 
 ## Installation
 
