@@ -34,7 +34,7 @@ stow -vDt ~ *
 to commit unlinking of dotfiles
 
 ## Dependencies
-[Link to DEPENDENCIES.md](DEPENDENCY.md)
+[Link to DEPENDENCIES.md](DEPENDENCIES.md)
 
 ## Notes
 
@@ -48,5 +48,5 @@ will link kitty's dotfiles only
 
 ## To-Do's
 
-- [ ] Rice i3wm after watching code cast's vids
+- [x] Rice i3wm after watching code cast's vids
 - [x] Make a dependency.md with commands for Arch Linux (BTW)
