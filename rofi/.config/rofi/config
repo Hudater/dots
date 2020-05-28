@@ -1,0 +1,3 @@
+rofi.theme: /home/putin/.config/rofi/slate.rasi 
+rofi.show-icons: true
+modi: window,run,ssh,drun

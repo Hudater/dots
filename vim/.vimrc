@@ -90,3 +90,6 @@ no <Up> <Nop>
 no <Down> <Nop>
 no <Left> <Nop>
 no <Right> <Nop>
+
+"Enabling .rasi syntax highlighting
+au BufNewFile,BufRead /*.rasi setf css

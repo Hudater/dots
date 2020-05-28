@@ -2,9 +2,9 @@ set number
 set relativenumber
 set nocompatible
 let mapleader = ","
-:set tabstop=2
-:set shiftwidth=2
-:set expandtab
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 
 "Plug
@@ -68,3 +68,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+"Enabling .rasi syntax highlighting
+au BufNewFile,BufRead /*.rasi setf css
