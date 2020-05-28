@@ -3,7 +3,11 @@
 Using Awesome-git and i3-gaps for WM, Arch as Distro and many more things like ZSH, Kitty etc
 
 ## Notes
-I am not updating powerlevel10k theme, some zsh plugins etc because I need to use git modules to make sure those things get pushed to github. It's not recommended to do things like this so please look into it if you wish to use my dotsfiles.
+
+ Awesome rice is not mine. It's work of u/ilovecookieee. A lot of stuff in these dotfiles are work of someone else which are modified for my usecase and preference. Fork it and play around.
+Link to ilovecookieee's awesome rice dotfiles: https://github.com/manilarome/the-glorious-dotfiles
+
+ I am not updating powerlevel10k theme, some zsh plugins etc because I need to use git modules to make sure those things get pushed to github. It's not recommended to do things like this so please look into it if you wish to use my dotfiles.
 
 Using GNU Stow to manage Dotfiles
 
