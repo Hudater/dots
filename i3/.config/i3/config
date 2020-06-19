@@ -44,7 +44,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec rofi -show drun 
