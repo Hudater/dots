@@ -71,3 +71,7 @@ let g:airline_symbols.linenr = ''
 
 "Enabling .rasi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
+
+"Enabling global copy-pasta
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-v> "+p
