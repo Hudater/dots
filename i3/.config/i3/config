@@ -46,6 +46,9 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+shift+q kill
 
+#logout of i3
+bindsym $mod+shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # start dmenu (a program launcher)
 bindsym $mod+e exec rofi -show drun 
 # There also is the (new) i3-dmenu-desktop which only displays applications
