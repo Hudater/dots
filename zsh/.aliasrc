@@ -36,6 +36,7 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias yt='youtube-dl'
+alias ytb='youtube-dl -f "bestvideo+bestaudio"'
 alias sf='sudo fastboot'
 alias i3rc='v ~/.config/i3/config'
 alias zrc='v ~/.zshrc'
