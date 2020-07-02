@@ -8,10 +8,11 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/gruvbox-material'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
+colorscheme dracula
 
 "#############################Settings##########################
 set incsearch
@@ -39,18 +40,18 @@ if exists('+termguicolors')
       endif
 "let ayucolor="mirage"   " for dark version of theme
 set background=dark
-colorscheme gruvbox-material
+"colorscheme=dracula
 set t_Co=256
 set t_ut=""
 
 "Airline things
 "let g:airline_theme='distinguished'
-"let g:airline_theme='fruit_punch'
+let g:airline_theme='fruit_punch'
 "let g:airline_theme='minimalist'
 "let g:airline_theme='tomorrow'
 "let g:airline_theme='zenburn'
 "let g:airline_theme='ayu_mirage'
-let g:airline_theme = 'gruvbox_material'
+"let g:airline_theme = 'gruvbox_material'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
 let g:Powerline_dividers_override = ["\Ue0b0","\Ue0b1","\Ue0b2","\Ue0b3"]

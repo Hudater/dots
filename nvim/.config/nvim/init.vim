@@ -14,9 +14,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+colorscheme dracula
 
 if (has("termguicolors"))
  set termguicolors
@@ -25,14 +27,14 @@ endif
 "Colors and customizations
 set termguicolors     " enable true colors support
 set background=dark
-let ayucolor="mirage"   " for dark version of theme
-colorscheme ayu
+"let ayucolor="mirage"   " for dark version of theme
+"colorscheme ayu
 
 "Airline things
 "let g:airline_theme='distinguished'
-"let g:airline_theme='fruit_punch'
+let g:airline_theme='fruit_punch'
 "let g:airline_theme='minimalist'
-let g:airline_theme='tomorrow'
+"let g:airline_theme='tomorrow'
 "let g:airline_theme='zenburn'
 "let g:airline_theme='ayu_mirage'
 let g:airline_powerline_fonts = 1

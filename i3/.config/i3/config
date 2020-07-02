@@ -216,17 +216,27 @@ assign [class=$ideWS] $ws5
 
 ############################Colors###################
 #Declaring vars for colors
-  set $bgcolor  #FFCC66
-  set $ibgcolor #CBCCC6
-  set $textcol  #FFFFFF
-  set $urgbgcol #FF0000
+  # set $bgcolor  #FFCC66
+  # set $ibgcolor #CBCCC6
+  # set $textcol  #FFFFFF
+  # set $urgbgcol #FF0000
 
 #Settings colors
 #                         border                      background                       text                      indicator
-client.focused            $bgcolor                    $bgcolor                         $textcol                  $bgcolor
-client.unfocused          $ibgcolor                   $ibgcolor                        $textcol                  $bgcolor
-client.focused_inactive   $ibgcolor                   $ibgcolor                        $textcol                  $ibgcolor
-client.urgent             $urgbgcol                   $urgbgcol                        $textcol                  $urgbgcol
+# client.focused            $bgcolor                    $bgcolor                         $textcol                  $bgcolor
+# client.unfocused          $ibgcolor                   $ibgcolor                        $textcol                  $bgcolor
+# client.focused_inactive   $ibgcolor                   $ibgcolor                        $textcol                  $ibgcolor
+# client.urgent             $urgbgcol                   $urgbgcol                        $textcol                  $urgbgcol
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
 
 #Hiding border around windows
 hide_edge_borders both
