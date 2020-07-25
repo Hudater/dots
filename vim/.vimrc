@@ -40,7 +40,6 @@ if exists('+termguicolors')
       endif
 "let ayucolor="mirage"   " for dark version of theme
 set background=dark
-"colorscheme=dracula
 set t_Co=256
 set t_ut=""
 
@@ -95,6 +94,8 @@ no <Right> <Nop>
 
 "Enabling .rasi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
+
+"Different crosshair for different modes
 let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
 let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
 let &t_EI = "\<esc>[1 q"  " default cursor (usually blinking block) otherwise
