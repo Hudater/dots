@@ -59,7 +59,7 @@ font-4 = Font Awesome 5 Free Solid:pixelsize=10;2
 font-5 = Font Awesome 5 Brands:pixelsize=10;2
 
 modules-left = i3
-modules-right = pulseaudio memory cpu wlan battery date powermenu
+modules-right = pulseaudio cpu memory date powermenu
 
 
 tray-position = right
@@ -223,7 +223,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = enp1s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
