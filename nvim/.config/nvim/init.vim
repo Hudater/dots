@@ -15,6 +15,7 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'mboughaba/i3config.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -77,3 +78,9 @@ au BufNewFile,BufRead /*.rasi setf css
 "Enabling global copy-pasta
 vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-v> "+p
+
+"i3config syntax highlighting
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end

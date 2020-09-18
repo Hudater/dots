@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/gruvbox-material'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'mboughaba/i3config.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -99,3 +100,9 @@ au BufNewFile,BufRead /*.rasi setf css
 let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
 let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
 let &t_EI = "\<esc>[1 q"  " default cursor (usually blinking block) otherwise
+
+"i3 config syntax highlighting
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead .config/i3/config set filetype=i3config
+aug end
