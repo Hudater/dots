@@ -4,4 +4,4 @@ imwheel --button "45" &
 numlockx &
 redshift &
 picom -b --experimental-backends &
-exec i3
+exec qtile

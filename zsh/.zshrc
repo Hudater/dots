@@ -131,3 +131,6 @@ source ~/.zsh/you-should-use/you-should-use.plugin.zsh
 
 #zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#vi mode for zsh
+bindkey -v
