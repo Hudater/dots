@@ -5,4 +5,4 @@ numlockx &
 redshift &
 #picom -b --experimental-backends &
 nm-applet &
-exec qtile
+exec awesome
