@@ -134,3 +134,6 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #vi mode for zsh
 bindkey -v
+
+# To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
+[[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
