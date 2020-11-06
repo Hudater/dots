@@ -5,8 +5,9 @@ export CODEEDITOR="vscodium"
 export TERMINAL="kitty"
 export BROWSER="brave"
 export COLORTERM="truecolor"
-export WM="i3"
+export WM="awesome"
 #export RANGER_LOAD_DEFAULT_RC=FALSE
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 #export LESS_TERMCAP_mb=$'\e[1;32m'
 #export LESS_TERMCAP_md=$'\e[1;32m'
