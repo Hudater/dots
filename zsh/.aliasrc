@@ -1,5 +1,5 @@
+###########################################Aliases################################
 alias l='lsd -hlA --group-dirs first'
-alias lt='lsd -lA'
 alias ls='lsd -hA --group-dirs first'
 alias c='clear'
 alias q='exit'
@@ -29,8 +29,6 @@ alias ga='git add'
 alias gcmsg='git commit -m'
 alias gl='git pull'
 alias gp='git push'
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
@@ -38,7 +36,8 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 alias yt='youtube-dl'
 alias ytb='youtube-dl -f "bestvideo+bestaudio"'
 alias sf='sudo fastboot'
-alias i3rc='v ~/.config/i3/config'
-alias zrc='v ~/.zshrc'
-alias brc='v ~/.bashrc'
 alias //='echo "blyattttt"'
+
+#################################################KEYBINDS###################################
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
