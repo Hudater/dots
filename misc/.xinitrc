@@ -5,4 +5,5 @@ numlockx &
 redshift &
 picom -b --experimental-backends &
 nm-applet &
+volumeicon &
 exec awesome

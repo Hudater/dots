@@ -40,5 +40,5 @@ alias '//'='echo "blyattttt"'
 alias 'pr'='cd "$OLDPWD"'
 
 #################################################KEYBINDS###################################
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
+bindkey "^a" "beginning-of-line"
+bindkey "^e" "end-of-line"

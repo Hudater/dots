@@ -1,14 +1,14 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 ##################################Sourcing#############################################
 #
 #Sourcing powerlevel10k theme
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 #aliasrc source
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
@@ -25,7 +25,7 @@ zstyle ':completion:*' matcher-list '' \
 '+l:|?=** r:|?=**'
 
 #Setting vi mode in zsh
-#bindkey -v
+bindkey -v
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -38,7 +38,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 autoload -Uz compinit && compinit -i
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #SET VIM AS MANPAGER
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
@@ -136,4 +136,6 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey -v
 
 # To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
-[[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
+# [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
+
+eval "$(starship init zsh)"

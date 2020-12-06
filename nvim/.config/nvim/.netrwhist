@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/etc/xdg/systemd/user/sockets.target.wants'
+let g:netrw_dirhist_9='/etc/xdg/systemd/user'
+let g:netrw_dirhist_8='/home/putin/.config/bpytop'
+let g:netrw_dirhist_7='/home/putin/.config/bashtop'
 let g:netrw_dirhist_6='/home/putin/GitIt/dots/zsh/.zsh'
 let g:netrw_dirhist_5='/home/putin/.vim'
 let g:netrw_dirhist_4='/home/putin/.zsh/powerlevel10k'
 let g:netrw_dirhist_3='/home/putin/.zsh'
 let g:netrw_dirhist_2='/home/putin/GitIt/dots/redshift'
 let g:netrw_dirhist_1='/home/putin/GitIt/dots/kitty/.config/kitty'
-let g:netrw_dirhist_0='/home/putin/GitIt/dots/kitty/.config'
-let g:netrw_dirhist_9='/home/putin/GitIt/dots/kitty'
-let g:netrw_dirhist_8='/home/putin/GitIt/dots/redshift'
-let g:netrw_dirhist_7='/home/putin/.zsh'
