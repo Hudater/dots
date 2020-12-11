@@ -126,9 +126,6 @@ source ~/.zsh/git/git.plugin.zsh
 #zsh-autosuggestion
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#you-should-use
-source ~/.zsh/you-should-use/you-should-use.plugin.zsh
-
 #zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
