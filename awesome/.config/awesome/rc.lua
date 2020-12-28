@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Importing Modules
+-- require('module.quake-terminal')
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -52,7 +55,7 @@ terminal = "kitty"
 spawner = "rofi -show drun"
 browser = "brave"
 guiFm = "nautilus"
-ide = "code"
+ide = "vscodium"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -111,7 +114,7 @@ awful.layout.layouts = {
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("%a %d-%b-%y | %I:%M:%S %p", 1)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -285,6 +288,9 @@ globalkeys = gears.table.join(
               {description = "open VScode", group = "launcher"}),
     awful.key({ modkey, "Shift"}, "f", function () awful.spawn(guiFm) end,
               {description = "open GUI File Manager", group = "launcher"}),
+    --  awful.key({ modkey,}, "`", function () awful.spawn(terminal) end,
+    --           {description = "open scrathpad", group = "launcher"}),
+       
      
 
     --functional binds
@@ -450,6 +456,16 @@ clientbuttons = gears.table.join(
     end)
 )
 
+--binding programs to workspaces
+-- awful.rules.rules = {
+--   { rule = { class = "kitty" },
+--   properties = { tag = tags[1][1] , switchtotag=true } },
+--   { rule = { class = "Brave-browser" },
+--   properties = { tag = tags[1][2] , switchtotag=true } },
+--   { rule = { class = "VSCodium" },
+--   properties = { tag = tags[1][3] , switchtotag=true } },
+-- }
+
 -- Set keys
 root.keys(globalkeys)
 -- }}}
@@ -457,6 +473,8 @@ root.keys(globalkeys)
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
+
+    
     -- All clients will match this rule.
     { rule = { },
       properties = { border_width = 0,
@@ -493,6 +511,7 @@ awful.rules.rules = {
         -- and the name shown there might not m "Exit? — CopyQ",tch defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "Picture in picture",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
