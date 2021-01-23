@@ -38,6 +38,7 @@ alias 'ytb'='youtube-dl -f "bestvideo+bestaudio"'
 alias 'sf'='sudo fastboot'
 alias '//'='echo "blyattttt"'
 alias 'pr'='cd "$OLDPWD"'
+alias 'wsr'='windscribe'
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"

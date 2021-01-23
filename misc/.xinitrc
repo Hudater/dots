@@ -6,4 +6,5 @@ redshift &
 #picom -b --experimental-backends &
 #nm-applet &
 volumeicon &
+setxkbmap -option caps:swapescape &
 exec awesome
