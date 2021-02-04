@@ -1,7 +1,7 @@
 export PATH="/mnt/IT/Coding/Scripts:$PATH"
 export EDITOR="nvim"
 export READER="zathura"
-export VISUAL="subl"
+export VISUAL="nvim"
 export CODEEDITOR="vscodium"
 export TERMINAL="kitty"
 export BROWSER="brave"
