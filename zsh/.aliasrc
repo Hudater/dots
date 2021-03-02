@@ -41,6 +41,7 @@ alias 'pr'='cd "$OLDPWD"'
 alias 'wsr'='windscribe'
 alias 'pi'='ssh ubuntu@192.168.29.10'
 alias 'sudo'='doas'
+alias 'stl'='systemctl'
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"
