@@ -15,7 +15,7 @@ Using GNU Stow to manage Dotfiles
 
 Clone:
 ```bash
-	git clone git@github.com:Hudater/dots.git
+git clone git@github.com:Hudater/dots.git
 ```
 
 Just run:
