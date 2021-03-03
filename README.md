@@ -13,6 +13,11 @@ Using GNU Stow to manage Dotfiles
 
 ## Installation
 
+Clone:
+```bash
+	git clone git@github.com:Hudater/dots.git
+```
+
 Just run:
 ```bash
  stow -nvt ~ *
