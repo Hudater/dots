@@ -15,11 +15,11 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'mboughaba/i3config.vim'
+"Plug 'mboughaba/i3config.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-colorscheme dracula
+"colorscheme dracula
 
 if (has("termguicolors"))
  set termguicolors
@@ -28,16 +28,19 @@ endif
 "Colors and customizations
 set termguicolors     " enable true colors support
 set background=dark
-"let ayucolor="mirage"   " for dark version of theme
-"colorscheme ayu
+let ayucolor="mirage"   " for dark version of theme
+colorscheme ayu
 
-"Airline things
+"Airline themes
 "let g:airline_theme='distinguished'
-let g:airline_theme='fruit_punch'
+"let g:airline_theme='fruit_punch'
 "let g:airline_theme='minimalist'
 "let g:airline_theme='tomorrow'
-"let g:airline_theme='zenburn'
+let g:airline_theme='zenburn'
 "let g:airline_theme='ayu_mirage'
+
+
+"other Airline settings
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
 let g:Powerline_dividers_override = ["\Ue0b0","\Ue0b1","\Ue0b2","\Ue0b3"]
@@ -80,7 +83,7 @@ vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-v> "+p
 
 "i3config syntax highlighting
-aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
+"aug i3config_ft_detection
+ " au!
+  "au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+"aug end
