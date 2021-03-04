@@ -39,10 +39,10 @@ alias 'sf'='sudo fastboot'
 alias '//'='echo "blyattttt"'
 alias 'pr'='cd "$OLDPWD"'
 alias 'wsr'='windscribe'
-alias 'pi'='ssh ubuntu@192.168.29.10'
-alias 'sudo'='doas'
+alias 'pi'='ssh pitin@192.168.29.10'
 alias 'stl'='systemctl'
 alias 'cat'='bat'
+alias 'yay'='paru'
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"
