@@ -290,8 +290,6 @@ globalkeys = gears.table.join(
               {description = "open GUI File Manager", group = "launcher"}),
     --  awful.key({ modkey,}, "`", function () awful.spawn(terminal) end,
     --           {description = "open scrathpad", group = "launcher"}),
-       
-     
 
     --functional binds
     awful.key({ modkey, "Control" }, "r", awesome.restart,
