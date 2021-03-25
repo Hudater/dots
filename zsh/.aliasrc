@@ -43,6 +43,7 @@ alias 'pi'='ssh pitin@192.168.29.10'
 alias 'stl'='systemctl'
 alias 'cat'='bat'
 alias 'yay'='paru'
+alias 'lt'='lsd -hA --tree'
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"
