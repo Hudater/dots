@@ -1,4 +1,4 @@
-export PATH="/mnt/IT/Coding/Scripts:$PATH"
+#export PATH="/mnt/IT/Coding/Scripts:$PATH"
 export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
