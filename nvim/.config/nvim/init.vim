@@ -15,15 +15,12 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'ntk148v/vim-horizon'
 "Plug 'mboughaba/i3config.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "colorscheme dracula
-
-if (has("termguicolors"))
- set termguicolors
-endif
 
 "Colors and customizations
 set termguicolors     " enable true colors support
