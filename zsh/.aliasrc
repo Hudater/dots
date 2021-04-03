@@ -40,10 +40,13 @@ alias '//'='echo "blyattttt"'
 alias 'pr'='cd "$OLDPWD"'
 alias 'wsr'='windscribe'
 alias 'pi'='ssh pitin@192.168.29.10'
-alias 'stl'='systemctl'
 alias 'cat'='bat'
 alias 'yay'='paru'
+<<<<<<< HEAD
+alias 'stl'='sudo systemctl'
+=======
 alias 'lt'='lsd -hA --tree'
+>>>>>>> 092fb88e2d8e99b1e85d04409b063446ce8d790f
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"
