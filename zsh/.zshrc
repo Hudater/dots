@@ -51,6 +51,8 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
+setopt HIST_IGNORE_SPACE
+
 
 #Navigate to directories without ls
 setopt autocd
