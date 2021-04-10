@@ -44,6 +44,8 @@ alias 'cat'='bat'
 alias 'yay'='paru'
 alias 'stl'='sudo systemctl'
 alias 'lt'='lsd -hA --tree'
+alias 'dkr'='docker'
+
 
 #################################################KEYBINDS###################################
 bindkey "^a" "beginning-of-line"
