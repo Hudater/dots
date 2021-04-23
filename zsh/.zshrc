@@ -24,9 +24,6 @@ zstyle ':completion:*' matcher-list '' \
 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
 '+l:|?=** r:|?=**'
 
-#Setting vi mode in zsh
-bindkey -v
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
