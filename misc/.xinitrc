@@ -4,7 +4,7 @@ imwheel --button "45" &
 numlockx &
 redshift &
 #picom -b --experimental-backends &
-#nm-applet &
+nm-applet &
 volumeicon &
 #setxkbmap -option caps:swapescape &
 exec awesome
