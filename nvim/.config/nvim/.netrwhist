@@ -1,22 +1,12 @@
 let g:netrw_dirhistmax  =10
-<<<<<<< HEAD
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/putin/GitIt/dots/kitty/.config/kitty'
-=======
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/pitin/test'
-let g:netrw_dirhist_5='/etc/pacman.d'
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/etc/polkit-1/rules.d'
+let g:netrw_dirhist_7='/usr/share/polkit-1/actions'
+let g:netrw_dirhist_6='/home/putin/GitIt/dots/zsh/.zsh'
+let g:netrw_dirhist_5='/home/putin/.vim'
 let g:netrw_dirhist_4='/etc/samba'
->>>>>>> b1e2ac6e693219589ee4faf594fbf927322e4296
 let g:netrw_dirhist_3='/'
 let g:netrw_dirhist_2='/etc/ssh'
 let g:netrw_dirhist_1='/home/putin/.zsh'
 let g:netrw_dirhist_0='/etc/xdg/systemd/user/sockets.target.wants'
 let g:netrw_dirhist_9='/etc/xdg/systemd/user'
-let g:netrw_dirhist_8='/home/putin/.config/bpytop'
-let g:netrw_dirhist_7='/home/putin/.config/bashtop'
-<<<<<<< HEAD
-let g:netrw_dirhist_6='/home/putin/GitIt/dots/zsh/.zsh'
-let g:netrw_dirhist_5='/home/putin/.vim'
-=======
->>>>>>> b1e2ac6e693219589ee4faf594fbf927322e4296
