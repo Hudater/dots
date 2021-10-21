@@ -1,0 +1,4 @@
+configuration {
+  modi: "drun,window,run,ssh";
+  theme: "/home/putin/.config/rofi/drun.rasi";
+}

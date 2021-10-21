@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="sftp://192.168.29.10/" added="2021-08-19T18:07:21.851822Z" modified="2021-08-19T18:24:39.704746Z" visited="2021-08-19T18:24:39.704745Z">
+    <title>/ on 192.168.29.10</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-08-19T18:24:39.704745Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://192.168.29.11/" added="2021-08-23T16:26:22.244273Z" modified="2021-10-12T19:34:48.825530Z" visited="2021-10-12T19:34:48.825528Z">
+    <title>/ on 192.168.29.11</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-10-12T19:34:48.825529Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://putin@192.168.29.11/" added="2021-09-16T11:04:38.131977Z" modified="2021-09-16T11:04:38.131980Z" visited="2021-09-16T11:04:38.131978Z">
+    <title>/ on 192.168.29.11</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-09-16T11:04:38.131979Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://192.168.29.12/" added="2021-09-16T16:49:31.698543Z" modified="2021-10-21T10:32:15.628979Z" visited="2021-10-21T10:32:15.628977Z">
+    <title>/ on 192.168.29.12</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-10-21T10:32:15.628978Z" count="11"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

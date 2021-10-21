@@ -1,0 +1,17 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+<<<<<<< HEAD
+let g:netrw_dirhist_8='/boot/overlays'
+let g:netrw_dirhist_7='/boot'
+=======
+let g:netrw_dirhist_8='/etc/polkit-1/rules.d'
+let g:netrw_dirhist_7='/usr/share/polkit-1/actions'
+>>>>>>> 46fd2f61bb48a47887c91e2f2774de300e0f7de5
+let g:netrw_dirhist_6='/home/putin/GitIt/dots/zsh/.zsh'
+let g:netrw_dirhist_5='/home/putin/.vim'
+let g:netrw_dirhist_4='/etc/samba'
+let g:netrw_dirhist_3='/'
+let g:netrw_dirhist_2='/etc/ssh'
+let g:netrw_dirhist_1='/home/putin/.zsh'
+let g:netrw_dirhist_0='/etc/xdg/systemd/user/sockets.target.wants'
+let g:netrw_dirhist_9='/etc/xdg/systemd/user'
