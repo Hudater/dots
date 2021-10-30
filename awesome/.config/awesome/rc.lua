@@ -59,6 +59,8 @@ guiFm = "nautilus"
 ide = "vscodium"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+-- xWidth = "$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)"
+-- YHeight = "$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

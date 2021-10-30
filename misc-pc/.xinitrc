@@ -7,4 +7,5 @@ redshift &
 nm-applet &
 volumeicon &
 #setxkbmap -option caps:swapescape &
+#sleep 5 && /home/putin/sc/reso.sh &
 exec awesome
