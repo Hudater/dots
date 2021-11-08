@@ -8,4 +8,5 @@ nm-applet &
 volumeicon &
 #setxkbmap -option caps:swapescape &
 #sleep 5 && /home/putin/sc/reso.sh &
-exec awesome
+#`exec awesome` can't be used for runit so use below command
+exec dbus-run-session awesome
