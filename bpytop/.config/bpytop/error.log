@@ -116,3 +116,8 @@ Traceback (most recent call last):
   File "/usr/bin/bpytop", line 1337, in refresh
     for f in os.listdir(d):
 FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+15/11/21 (01:40:10) | ERROR: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'

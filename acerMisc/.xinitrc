@@ -6,4 +6,6 @@ redshift &
 nm-applet &
 volumeicon &
 #setxkbmap -option caps:swapescape &
+xfce4-power-manager &
+x0vncserver -passwordfile ~/.vnc/passwd -display :0 &
 exec awesome
