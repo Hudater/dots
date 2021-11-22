@@ -33,12 +33,12 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="sftp://192.168.29.12/" added="2021-09-16T16:49:31.698543Z" modified="2021-10-21T10:32:15.628979Z" visited="2021-10-21T10:32:15.628977Z">
+  <bookmark href="sftp://192.168.29.12/" added="2021-09-16T16:49:31.698543Z" modified="2021-11-22T14:55:37.142933Z" visited="2021-11-22T14:55:37.142931Z">
     <title>/ on 192.168.29.12</title>
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-10-21T10:32:15.628978Z" count="11"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-11-22T14:55:37.142932Z" count="12"/>
         </bookmark:applications>
       </metadata>
     </info>
