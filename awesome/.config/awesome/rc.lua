@@ -291,7 +291,7 @@ globalkeys = gears.table.join(
               {description = "open GUI File Manager", group = "launcher"}),
     awful.key({ modkey, "Shift"}, "c", function () awful.spawn(chromium) end,
               {description = "open Chromium browser", group = "launcher"}),
-    awful.key({}, "Print", function () awful.spawn("scrot -sf /home/putin/Pictures/%d-%b-%Y_%I-%M-%S_SS.png") end,
+    awful.key({}, "Print", function () awful.spawn("scrot -s -f /home/putin/Pictures/%d-%b-%Y_%I-%M-%S_SS.png") end,
               {description = "Launch screenshot utility in interactive mode", group = "Utils"}),
     awful.key({ "Shift" }, "Print", function () awful.spawn("scrot -d 1 /home/putin/Pictures/%d-%b-%Y_%I-%M-%S_SS.png") end,
               {description = "Fullscreen screenshot with 1 sec delay", group = "Utils"}),
