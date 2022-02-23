@@ -8,4 +8,5 @@ nm-applet &
 volumeicon &
 #setxkbmap -option caps:swapescape &
 #`exec awesome` can't be used for runit so use below command
+# exec awesome
 exec dbus-run-session awesome

@@ -1,5 +1,5 @@
 [Alsa]
-card=HD-Audio Generic
+card=default
 channel=Master
 
 [Notification]
