@@ -1,4 +1,4 @@
-nitrogen --set-scaled --random /mnt/Media/Wallpapers/pc &
+nitrogen --set-scaled --random /home/putin/GitIt/Wallpapers-PC &
 xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 &
 imwheel --button "45" &
 numlockx &
