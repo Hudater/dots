@@ -25,6 +25,6 @@ export QT_STYLE_OVERRIDE=kvantum
 #  PATH="$PATH:/mnt/IT/Coding/Scripts"
 #fi
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-startx
-fi
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+#startx
+#fi
