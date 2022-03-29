@@ -1,50 +1,54 @@
 ###########################################Aliases################################
+# utils
 alias 'l'='exa --icons --group-directories-first -la -gh'
 alias 'ls'='exa --icons --group-directories-first -a'
 alias 'c'='clear'
 alias 'q'='exit'
-alias 'v'='nvim'
-alias 'vi'='nvim'
-alias 'svi'='sudoedit'
-alias 'vis'='nvim "+set si"'
-alias 'edit'='nvim'
-alias 'ping'='ping -c 5'
 alias 'root'='sudo -i'
-alias 'su'='sudo -i'
-alias 'mirrors'='sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
-alias 'haks'='cd /mnt/IT/Coding'
-alias 'files'='cd /mnt/Files'
-alias 'it'='cd /mnt/IT'
-alias 'md'='cd /mnt/Media'
-alias 'dot'='cd ~/GitIt/dots'
 alias '..'='cd ..'
 alias '...'='cd ../../'
 alias '....'='cd ../../../'
+alias '//'='echo "blyattttt"'
 alias 'grep'='grep --color=auto'
 alias 'egrep'='egrep --color=auto'
 alias 'fgrep'='fgrep --color=auto'
 alias 'mkdir'='mkdir -pv'
+alias 'cp'="cp -i"                          # confirm before overwriting something
+alias 'df'='df -h'                          # human-readable sizes
+alias 'free'='free -m'                      # show sizes in MB
+alias 'cat'='bat'
+alias 'pr'='cd "$OLDPWD"'
+
+# applications
+alias 'v'='nvim'
+alias 'vi'='nvim'
+alias 'svi'='sudoedit'
+alias 'ping'='ping -c 5'
+alias 'yay'='paru'
+alias 'dkr'='docker'
+
+# directories
+alias 'cfg'='cd ~/.config'
+alias 'sfs'='cd ~/GitIt/SyncFiles'
+alias 'dots'='cd ~/GitIt/SyncFiles/dots'
+alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
+alias 'svs'='cd ~/GitIt/SyncFiles/services'
+alias 'spr'='cd ~/GitIt/SyncFiles/servicesPr'
+alias 'bak'='cd ~/GitIt/SyncFiles/configBak'
+
+# git
 alias 'gc'='git clone'
 alias 'gst'='git status'
 alias 'ga'='git add'
 alias 'gcmsg'='git commit -m'
 alias 'gl'='git pull'
 alias 'gp'='git push'
-alias 'cp'="cp -i"                          # confirm before overwriting something
-alias 'df'='df -h'                          # human-readable sizes
-alias 'free'='free -m'                      # show sizes in MB
-alias 'rr'='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+# rarely used (yt-dl, fastboot etc)
 alias 'yt'='youtube-dl'
 alias 'ytb'='youtube-dl -f "bestvideo+bestaudio"'
 alias 'sf'='sudo fastboot'
-alias '//'='echo "blyattttt"'
-alias 'pr'='cd "$OLDPWD"'
-alias 'wsr'='windscribe'
-alias 'cat'='bat'
-alias 'yay'='paru'
-alias 'stl'='sudo systemctl'
-alias 'lt'='lsd -hA --tree'
-alias 'dkr'='docker'
+alias 'mirrors'='sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
 
 
 #################################################KEYBINDS###################################
