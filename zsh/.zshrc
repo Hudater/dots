@@ -128,6 +128,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#zsh-expand-all
+#source ~/.zsh/zsh-expand-all.zsh
+
 #vi mode for zsh
 bindkey -v
 
