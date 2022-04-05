@@ -30,11 +30,11 @@ alias 'dkr'='docker'
 # directories
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd ~/GitIt/SyncFiles'
-alias 'dots'='cd ~/GitIt/SyncFiles/dots'
-alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
-alias 'svs'='cd ~/GitIt/SyncFiles/services'
-alias 'spr'='cd ~/GitIt/SyncFiles/servicesPr'
-alias 'bak'='cd ~/GitIt/SyncFiles/configBak'
+#alias 'dots'='cd ~/GitIt/SyncFiles/dots'
+#alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
+#alias 'svs'='cd ~/GitIt/SyncFiles/services'
+#alias 'spr'='cd ~/GitIt/SyncFiles/servicesPr'
+#alias 'bak'='cd ~/GitIt/SyncFiles/configBak'
 
 # git
 alias 'gc'='git clone'
