@@ -26,6 +26,7 @@ alias 'svi'='sudoedit'
 alias 'ping'='ping -c 5'
 alias 'yay'='paru'
 alias 'dkr'='docker'
+alias 'ktl'='kubectl'
 
 # directories
 alias 'cfg'='cd ~/.config'
