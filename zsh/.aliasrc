@@ -1,5 +1,5 @@
 ###########################################Aliases################################
-# utils
+# Utils
 alias 'l'='exa --icons --group-directories-first -la -gh'
 alias 'ls'='exa --icons --group-directories-first -a'
 alias 'c'='clear'
@@ -17,27 +17,26 @@ alias 'cp'="cp -i"                          # confirm before overwriting somethi
 alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
-#alias 'cat'='bat'
-# checking if bat binary is called bat or batcat
+# Checking if bat binary is called bat or batcat
 if command -v bat >/dev/null 2>&1
 then
   alias 'cat'='bat'
 elif
- command -v batcat >/dev/null 2>&1
+  command -v batcat >/dev/null 2>&1
 then 
   alias 'cat'='batcat'
 fi 
 
-# applications
+# Applications
 alias 'v'='nvim'
 alias 'vi'='nvim'
 alias 'svi'='sudoedit'
 alias 'ping'='ping -c 5'
 alias 'yay'='paru'
-alias 'dkr'='docker'
+# alias 'dkr'='docker'
 alias 'ktl'='kubectl'
 
-# directories
+# Directories
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd ~/GitIt/SyncFiles'
 #alias 'dots'='cd ~/GitIt/SyncFiles/dots'
@@ -54,7 +53,7 @@ alias 'gcmsg'='git commit -m'
 alias 'gl'='git pull'
 alias 'gp'='git push'
 
-# rarely used (yt-dl, fastboot etc)
+# Rarely used (yt-dl, fastboot etc)
 alias 'yt'='youtube-dl'
 alias 'ytb'='youtube-dl -f "bestvideo+bestaudio"'
 alias 'sf'='sudo fastboot'
@@ -66,3 +65,18 @@ bindkey "^a" "beginning-of-line"
 bindkey "^e" "end-of-line"
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+#################################################FUNCTIONS###################################
+
+# Docker ps
+function dkr () {
+    if [[ "$@" == "ps -a" ]]; then
+        command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+        | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
+    elif [[ "$@" == "ps" ]]; then
+        command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+        | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
+    else
+        command docker "$@"
+    fi
+}
