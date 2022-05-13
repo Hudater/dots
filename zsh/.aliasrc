@@ -71,10 +71,10 @@ bindkey "^[[1;5D" backward-word
 # Docker ps
 function dkr () {
     if [[ "$@" == "ps -a" ]]; then
-        command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+        command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
         | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
     elif [[ "$@" == "ps" ]]; then
-        command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+        command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
         | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
     else
         command docker "$@"
