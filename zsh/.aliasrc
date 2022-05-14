@@ -17,15 +17,22 @@ alias 'cp'="cp -i"                          # confirm before overwriting somethi
 alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
+
+# Conditional aliases
 # Checking if bat binary is called bat or batcat
 if command -v bat >/dev/null 2>&1
 then
   alias 'cat'='bat'
 elif
   command -v batcat >/dev/null 2>&1
-then 
+then
   alias 'cat'='batcat'
-fi 
+fi
+# docker compose
+if command -v docker compose >/dev/null 2>&1
+then
+  alias 'docker-compose'='docker compose'
+fi
 
 # Applications
 alias 'v'='nvim'
