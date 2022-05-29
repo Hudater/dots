@@ -229,6 +229,29 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- ,}}}
 
+-- No borders if only one window on screen
+function border_adjust(c)
+    if #c.screen.clients == 1 then
+        c.border_width = 0
+    elseif #c.screen.clients > 1 then
+        c.border_width = beautiful.border_width
+        c.border_color = beautiful.border_focus
+    end
+end
+
+-- No gaps if only one window on screen
+function gap_adjust(c)
+    if #c.screen.clients == 1 then
+        beautiful.useless_gap = 0
+    elseif #c.screen.clients > 1 then
+        beautiful.useless_gap = 3
+    end
+end
+
+client.connect_signal("focus", border_adjust)
+client.connect_signal("focus", gap_adjust)
+
+
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
     -- awful.button({ }, 3, function () mymainmenu:toggle() end),
