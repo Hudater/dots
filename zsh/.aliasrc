@@ -42,6 +42,7 @@ alias 'ping'='ping -c 5'
 alias 'yay'='paru'
 # alias 'dkr'='docker'
 alias 'ktl'='kubectl'
+alias 'mksrv'='mkdocs serve --dev-addr=0.0.0.0:4444'
 
 # Directories
 alias 'cfg'='cd ~/.config'

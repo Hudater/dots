@@ -1,4 +1,4 @@
-#export PATH="/mnt/IT/Coding/Scripts:$PATH"
+export PATH="/sbin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
@@ -28,9 +28,10 @@ export QT_STYLE_OVERRIDE=kvantum
 ##Ask to startx
 if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
 then
-echo "would you like to start X? (y/n)"
+echo "would you like to start X? (Y/n)"
 while true; do
 read REPLY
+REPLY="${REPLY:=y}"
 case $REPLY in
     [Yy]) exec startx ;;
     [Nn]) break ;;
