@@ -12,7 +12,7 @@ alias '//'='echo "blyattttt"'
 alias 'grep'='grep --color=auto'
 alias 'egrep'='egrep --color=auto'
 alias 'fgrep'='fgrep --color=auto'
-alias 'mkdir'='mkdir -pv'
+# alias 'mkdir'='mkdir -pv'                   # NOW A FUNCTION
 alias 'cp'="cp -i"                          # confirm before overwriting something
 alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
@@ -65,7 +65,7 @@ alias 'gp'='git push'
 alias 'yt'='youtube-dl'
 alias 'ytb'='youtube-dl -f "bestvideo+bestaudio"'
 alias 'sf'='sudo fastboot'
-alias 'mirrors'='sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
+alias 'mirrors'='sudo reflector --latest 50 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
 
 
 #################################################KEYBINDS###################################
@@ -78,15 +78,34 @@ bindkey "^[[1;5D" backward-word
 
 # Docker ps
 function dkr () {
-    if [[ "$@" == "ps -a" ]]; then
-        command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
-        | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
-    elif [[ "$@" == "ps" ]]; then
-        command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
-        | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
-    else
-        command docker "$@"
-    fi
+  if [[ "$@" == "ps -a" ]]; then
+    command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+    | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
+  elif [[ "$@" == "ps" ]]; then
+    command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+    | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
+  else
+    command docker "$@"
+  fi
+}
+
+# Create directory with docker-compose.yml and deploy.sh file with chmod +x
+# You need templates already in .config
+# Symlink them via dotfiles repo
+function dkdir () {
+  mkdir -pv "$1" && \
+  cd $1 && \
+  cp -r ~/.config/templates/dockerTemps/* . && \
+  # printf "\n" && \
+  chmod +x deploy.sh && \
+  ls -la
+}
+
+# Create directory; cd into it; ls dir
+function mkdir () {
+  command mkdir -pv "$1" && \
+  cd $1 && \
+  ls -la
 }
 
 ## From DT's gitlab
@@ -95,17 +114,17 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 function extract {
- if [ -z "$1" ]; then
+if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
     echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
- else
+else
     for n in "$@"
     do
       if [ -f "$n" ] ; then
           case "${n%,}" in
             *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                         tar xvf "$n"       ;;
+                        tar xvf "$n"       ;;
             *.lzma)      unlzma ./"$n"      ;;
             *.bz2)       bunzip2 ./"$n"     ;;
             *.cbr|*.rar)       unrar x -ad ./"$n" ;;
@@ -113,15 +132,15 @@ function extract {
             *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
             *.z)         uncompress ./"$n"  ;;
             *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
-                         7z x ./"$n"        ;;
+                        7z x ./"$n"        ;;
             *.xz)        unxz ./"$n"        ;;
             *.exe)       cabextract ./"$n"  ;;
             *.cpio)      cpio -id < ./"$n"  ;;
             *.cba|*.ace)      unace x ./"$n"      ;;
             *)
-                         echo "extract: '$n' - unknown archive method"
-                         return 1
-                         ;;
+                        echo "extract: '$n' - unknown archive method"
+                        return 1
+                        ;;
           esac
       else
           echo "'$n' - file does not exist"
