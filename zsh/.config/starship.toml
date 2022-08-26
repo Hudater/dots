@@ -1,7 +1,99 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[🐼](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+# Disable the blank line at the start of the prompt
+add_newline = true
 
+# A continuation prompt that displays two filled in arrows
+continuation_prompt = "▶▶"
+
+format = """
+[┌─────────────────> $username $sudo$hostname](bold green)
+[│](bold green)$directory $git_branch $git_status $cmd_duration
+[└─$character](bold green)"""
+
+right_format = """$localip"""
+
+[line_break]
+disabled = false
+
+## First Line of Prompt
+[username]
+style_user = "bold red"
+style_root = "black bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[sudo]
+style = "bold green"
+symbol = "🗿"
+disabled = false
+format = "[as $symbol]($style) "
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "at [$hostname](bold red) [$ssh_symbol](bold blue)"
+ssh_symbol = "🌏"
+
+[localip]
+ssh_only = false
+format = "🔗[$localipv4](blue)"
+disabled = false
+
+## Second Line of Prompt
+[directory]
+# format = "[](fg:#232526 bg:none)[$path]($style)[](fg:#232526 bg:#232526)[](fg:#6791c9 bg:#232526)[](fg:#232526 bg:#6791c9)[](fg:#6791c9 bg:none)"
+format = "[](fg:#232526 bg:none)[$path]($style)[](fg:#232526 bg:#232526)[](fg:#6791c9 bg:#232526)[](fg:#232526 bg:#6791c9)[](fg:#6791c9 bg:none)[$read_only]($read_only_style) "
+style = "fg:#edeff0 bg:#232526"
+truncation_length = 3
+truncate_to_repo=false
+truncation_symbol = "…/"
+
+[cmd_duration]
+min_time = 1
+format = "[](fg:#232526 bg:none)[$duration]($style)[](fg:#232526 bg:#232526)[](fg:#bc83e3 bg:#232526)[](fg:#232526 bg:#bc83e3)[](fg:#bc83e3 bg:none) "
+disabled = false
+style = "fg:#edeff0 bg:#232526"
+
+## Second Line
+[character]
+success_symbol = " [🐼](#6791c9)"
+error_symbol = " [](#df5b61)"
+vicmd_symbol = "[  ](#78b892)"
+
+## Git on First Line
+[git_branch]
+format = "[](fg:#232526 bg:none)[$branch]($style)[](fg:#232526 bg:#232526)[](fg:#78b892 bg:#232526)[](fg:#282c34 bg:#78b892)[](fg:#78b892 bg:none) "
+style = "fg:#edeff0 bg:#232526"
+
+[git_status]
+format="[](fg:#232526 bg:none)[$all_status$ahead_behind]($style)[](fg:#232526 bg:#232526)[](fg:#67afc1 bg:#232526)[](fg:#232526 bg:#67afc1)[](fg:#67afc1 bg:none) "
+style = "fg:#edeff0 bg:#232526"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[git_commit]
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_state]
+rebase = "REBASING"
+merge =	"MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style =	"yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
