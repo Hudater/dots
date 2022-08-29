@@ -1,6 +1,6 @@
 [Alsa]
 card=HD-Audio Generic
-channel=Master
+channel=Rear Mic Boost
 
 [Notification]
 show_notification=true
