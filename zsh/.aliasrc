@@ -43,6 +43,7 @@ alias 'yay'='paru'
 # alias 'dkr'='docker'
 alias 'ktl'='kubectl'
 alias 'mksrv'='mkdocs serve -v --dev-addr=0.0.0.0:4444'
+alias 'stl'='sudo systemctl'
 
 # Directories
 alias 'cfg'='cd ~/.config'
@@ -93,7 +94,7 @@ function dkr () {
 # You need templates already in .config
 # Symlink them via dotfiles repo
 function dkdir () {
-  mkdir -pv "$1" && \
+  mkdir -p "$1" && \
   cd $1 && \
   cp -r ~/.config/templates/dockerTemps/* . && \
   # printf "\n" && \

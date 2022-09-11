@@ -1,12 +1,13 @@
-nitrogen --set-scaled --random /home/putin/GitIt/Wallpapers-PC &
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144 &
 imwheel --button "45" &
 numlockx &
 redshift &
 #picom -b --experimental-backends &
 nm-applet &
 volumeicon &
+#xfce4-power-manager &
+#cbatticon -r 20 -l 80 &
 #setxkbmap -option caps:swapescape &
-#`exec awesome` can't be used for runit so use below command
+#xrandr --output HDMI-1 --mode 1920x1080 --rate 144 &
+xrandr --output eDP-1 --off --output HDMI-1 --mode 1920x1080 --rate 120 --pos 0x0 --rotate normal &
+nitrogen --set-scaled --random /home/putin/GitIt/Wallpapers-PC &
 exec awesome
-# exec dbus-run-session awesome

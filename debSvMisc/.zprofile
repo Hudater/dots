@@ -1,15 +1,15 @@
 #export PATH="/mnt/IT/Coding/Scripts:$PATH"
+export PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
 export EDITOR="nvim"
 export READER="zathura"
-export VISUAL="nvim"
-export CODEEDITOR="vscodium"
-export TERMINAL="kitty"
-export BROWSER="brave"
+#export VISUAL="nvim"
+#export CODEEDITOR="vscodium"
+#export TERMINAL="kitty"
+#export BROWSER="brave"
 export COLORTERM="truecolor"
-export WM="awesome"
 #export RANGER_LOAD_DEFAULT_RC=FALSE
 #export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_STYLE_OVERRIDE=kvantum
+#export QT_STYLE_OVERRIDE=kvantum
 
 #export LESS_TERMCAP_mb=$'\e[1;32m'
 #export LESS_TERMCAP_md=$'\e[1;32m'
