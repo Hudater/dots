@@ -94,7 +94,7 @@ function dkr () {
 # You need templates already in .config
 # Symlink them via dotfiles repo
 function dkdir () {
-  mkdir -p "$1" && \
+  command mkdir -pv "$1" && \
   cd $1 && \
   cp -r ~/.config/templates/dockerTemps/* . && \
   # printf "\n" && \
