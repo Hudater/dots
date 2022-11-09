@@ -63,8 +63,8 @@ alias 'gl'='git pull'
 alias 'gp'='git push'
 
 # Rarely used (yt-dl, fastboot etc)
-alias 'yt'='youtube-dl'
-alias 'ytb'='youtube-dl -f "bestvideo+bestaudio"'
+alias 'yt'='yt-dlp'
+alias 'ytb'='yt-dlp -f "bestvideo+bestaudio"'
 alias 'sf'='sudo fastboot'
 alias 'mirrors'='sudo reflector --latest 50 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
 
