@@ -2,10 +2,18 @@ command_timeout = 5000
 add_newline = true
 continuation_prompt = "▶▶"
 
+## Left side is square in this ver
+# format = """
+# [┌─────────────────> ](#1c283d)[\uE0B6](#2d333d)$username[\uE0B0](bg:#434C5E fg:#2d333d)$hostname[\uE0B4](fg:#434C5E)
+# [│](#1c283d)[\uE0B6](#182847)$directory[\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status[\uE0B0](fg:#33658A bg:#182847)$cmd_duration[\uE0B4](fg:#182847) [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context[\uE0B4](fg:#8A6455)
+# [└─$character](fg:#1c283d)
+# """
+
+## Left side is rounded off in this ver
 format = """
-[┌─────────────────> ](#1c283d)[\uE0B6](#2d333d)$username[\uE0B0](bg:#434C5E fg:#2d333d)$hostname[\uE0B4](fg:#434C5E)
-[│](#1c283d)[\uE0B6](#182847)$directory[\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status[\uE0B0](fg:#33658A bg:#182847)$cmd_duration[\uE0B4](fg:#182847) [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context[\uE0B4](fg:#8A6455)
-[└─$character](fg:#1c283d)
+[╭──────────────────❯ ](#1c283d)[\uE0B6](#2d333d)$username[\uE0B0](bg:#434C5E fg:#2d333d)$hostname[\uE0B4](fg:#434C5E)
+[┣─](#1c283d)[\uE0B6](#182847)$directory[\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status[\uE0B0](fg:#33658A bg:#182847)$cmd_duration[\uE0B4](fg:#182847) [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context[\uE0B4](fg:#8A6455)
+[╰─❯$character](fg:#1c283d)
 """
 
 right_format = """[\uE0B6](fg:#182847)$localip[\uE0B4](fg:#182847)"""
@@ -33,12 +41,22 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#33658A"
-format = '[ $symbol $branch ]($style)'
+format = '[ $symbol   $branch ]($style)'
 
 [git_status]
 style = "bg:#33658A"
-format = '[ $all_status$ahead_behind ]($style)'
-
+format = '[ $all_status $ahead_behind ]($style)'
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
 [cmd_duration]
 min_time = 1
 disabled = false
