@@ -18,9 +18,25 @@ continuation_prompt = "▶▶"
 # [╰─❯$character](fg:#1c283d)
 # """
 
+# # Most info is on first line with empty second line
+# format = """
+# [╭──────────────────❯ ](#1c283d)[\uE0B6](#2d333d)\
+# $username[\uE0B0](bg:#434C5E fg:#2d333d)\
+# $hostname[\uE0B4](fg:#434C5E) \
+# [\uE0B6](#182847)$directory\
+# [\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status\
+# [\uE0B0](fg:#33658A bg:#182847)$cmd_duration\
+# [\uE0B4](fg:#182847) \
+# $fill\
+# [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context\
+# [\uE0B4](fg:#8A6455)
+# [┣─](#1c283d)
+# [╰─❯$character](fg:#1c283d)
+# """
+
 # Most info is on first line with empty second line
 format = """
-[╭──────────────────❯ ](#1c283d)[\uE0B6](#2d333d)\
+[╭─────────❯ ](#1c283d)[\uE0B6](#2d333d)\
 $username[\uE0B0](bg:#434C5E fg:#2d333d)\
 $hostname[\uE0B4](fg:#434C5E) \
 [\uE0B6](#182847)$directory\
@@ -30,7 +46,6 @@ $hostname[\uE0B4](fg:#434C5E) \
 $fill\
 [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context\
 [\uE0B4](fg:#8A6455)
-[┣─](#1c283d)
 [╰─❯$character](fg:#1c283d)
 """
 
