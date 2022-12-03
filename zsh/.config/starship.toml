@@ -43,13 +43,23 @@ $hostname[\uE0B4](fg:#434C5E) \
 [\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status\
 [\uE0B0](fg:#33658A bg:#182847)$cmd_duration\
 [\uE0B4](fg:#182847) \
-$fill\
-[\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context\
+[\uE0B6](#8A6455)$jobs\
 [\uE0B4](fg:#8A6455)
 [╰─❯$character](fg:#1c283d)
 """
 
+# $fill\
+# [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context\
+
 right_format = """[\uE0B6](fg:#182847)$localip[\uE0B4](fg:#182847)"""
+
+
+[jobs]
+symbol = "+"
+number_threshold = 1
+symbol_threshold = 1
+style = "bg:#8A6455"
+format = "[$symbol $number]($style)"
 
 [username]
 show_always = true
