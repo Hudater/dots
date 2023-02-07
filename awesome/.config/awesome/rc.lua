@@ -18,6 +18,20 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Importing bling `https://github.com/BlingCorp/bling`
+local bling = require("bling")
+
+local term_scratch = bling.module.scratchpad {
+    command = "kitty --class=spad",                   -- How to spawn the scratchpad
+    rule = { instance = "spad" },                     -- The rule that the scratchpad will be searched by
+    sticky = true,                                    -- Whether the scratchpad should be sticky
+    autoclose = true,                                 -- Whether it should hide itself when losing focus
+    floating = true,                                  -- Whether it should be floating (MUST BE TRUE FOR ANIMATIONS)
+    geometry = {x=0, y=0, height=300, width=1920}, -- The geometry in a floating state
+    reapply = true,                                   -- Whether all those properties should be reapplied on every new opening of the scratchpad (MUST BE TRUE FOR ANIMATIONS)
+    dont_focus_before_close  = false,                 -- When set to true, the scratchpad will be closed by the toggle function regardless of whether its focused or not. When set to false, the toggle function will first bring the scratchpad into focus and only close it on a second call
+}
+
 -- Importing Modules
 -- require('module.quake-terminal')
 
@@ -44,7 +58,7 @@ do
         naughty.notify(
                         { preset = naughty.config.presets.critical,
                             title = "Oops, an error happened!",
-                            text = tostring(err) 
+                            text = tostring(err)
                         })
         in_error = false
     end)
@@ -330,6 +344,8 @@ globalkeys = gears.table.join(
         {description = "Launch screenshot utility in interactive mode", group = "Utils"}),
     awful.key({}, "Print", function () awful.spawn("scrot -d 1 /home/putin/Pictures/%d-%b-%Y_%I-%M-%S_SS.png") end,
         {description = "Fullscreen screenshot with 1 sec delay", group = "Utils"}),
+    awful.key({ modkey,}, "`", function() awful.spawn(term_scratch:toggle()) end,
+        {description = "Toggle Drop-Down Terminal/Scratchpad", group = "launcher"}),
     --  awful.key({ modkey,}, "`", function () awful.spawn(terminal) end,
     --           {description = "open scrathpad", group = "launcher"}),
 
