@@ -27,7 +27,6 @@ set termguicolors     " enable true colors support
 set background=dark
 let ayucolor="mirage"   " for dark version of theme
 colorscheme ayu
-
 "Airline themes
 "let g:airline_theme='distinguished'
 "let g:airline_theme='fruit_punch'
