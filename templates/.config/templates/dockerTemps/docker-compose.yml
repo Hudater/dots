@@ -4,6 +4,7 @@ services:
   serviceName:
     image: MAINTAINER/IMAGE:latest
     container_name: myContainer #
+    hostname: myContainer #
     restart: unless-stopped
     volumes:
       - "${CFG_DIR}/containerCfgDir:/config" #
