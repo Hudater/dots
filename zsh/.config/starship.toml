@@ -44,6 +44,8 @@ $hostname[\uE0B4](fg:#434C5E) \
 [\uE0B0](fg:#33658A bg:#182847)$cmd_duration\
 [\uE0B4](fg:#182847) \
 [\uE0B6](#8A6455)$jobs\
+[\uE0B4](fg:#8A6455) \
+[\uE0B6](#8A6455)$status\
 [\uE0B4](fg:#8A6455)
 [╰─❯$character](fg:#1c283d)
 """
@@ -53,6 +55,14 @@ $hostname[\uE0B4](fg:#434C5E) \
 
 right_format = """[\uE0B6](fg:#182847)$localip[\uE0B4](fg:#182847)"""
 
+[status]
+style = 'bg:#8A6455'
+# symbol = '🔴'
+# success_symbol = '🟢 SUCCESS'
+format = '[$common_meaning$pipestatus $status$pipestatus_separator$signal_name$maybe_int]($style)'
+map_symbol = true
+pipestatus = true
+disabled = false
 
 [jobs]
 symbol = "+"
