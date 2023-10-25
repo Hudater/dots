@@ -1,10 +1,10 @@
 imwheel --button "45" &
 numlockx &
 redshift &
-#picom -b --experimental-backends &
+picom -b --experimental-backends &
 nm-applet &
 volumeicon &
-xfce4-power-manager &
+#xfce4-power-manager &
 #cbatticon -r 20 -l 80 &
 #setxkbmap -option caps:swapescape &
 #xrandr --output HDMI-1 --mode 1920x1080 --rate 144 &
