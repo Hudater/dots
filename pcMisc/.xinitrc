@@ -1,9 +1,10 @@
 imwheel --button "45" &
 numlockx &
 redshift &
-picom -b --experimental-backends &
+#picom -b --experimental-backends &
 nm-applet &
 volumeicon &
+blueman-applet &
 #xfce4-power-manager &
 #cbatticon -r 20 -l 80 &
 #setxkbmap -option caps:swapescape &
