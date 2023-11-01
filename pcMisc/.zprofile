@@ -35,7 +35,7 @@ REPLY="${REPLY:=y}"
 case $REPLY in
     [Yy]) exec startx ;;
     [Nn]) break ;;
-    *) printf '%s/n' 'Please answer y or n.' ;;
+    *) printf '%s/n' 'Please answer Y or n.' ;;
 esac
 done
 fi
