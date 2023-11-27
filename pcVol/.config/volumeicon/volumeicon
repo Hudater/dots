@@ -1,6 +1,6 @@
 [Alsa]
 card=default
-channel=Master
+channel=Headphone
 
 [Notification]
 show_notification=true

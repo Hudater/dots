@@ -90,7 +90,7 @@ function dkr () {
   fi
 }
 
-# Create directory with docker-compose.yml and deploy.sh file with chmod +x
+# Create directory with docker-compose.yml, deploy.sh file with chmod +x and README.md
 # You need templates already in .config
 # Symlink them via dotfiles repo
 function dkdir () {
