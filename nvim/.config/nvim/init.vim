@@ -31,8 +31,8 @@ colorscheme ayu
 "let g:airline_theme='distinguished'
 "let g:airline_theme='fruit_punch'
 "let g:airline_theme='minimalist'
-"let g:airline_theme='tomorrow'
-let g:airline_theme='zenburn'
+let g:airline_theme='tomorrow'
+"let g:airline_theme='zenburn'
 "let g:airline_theme='ayu_mirage'
 
 
