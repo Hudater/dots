@@ -26,16 +26,32 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #fi
 
 ##Ask to startx
+# if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
+# then
+# echo "would you like to start X? (Y/n)"
+# while true; do
+# read REPLY
+# REPLY="${REPLY:=y}"
+# case $REPLY in
+#     [Yy]) exec startx ;;
+#     [Nn]) break ;;
+#     *) printf '%s/n' 'Please answer Y or n.' ;;
+# esac
+# done
+# fi
+
+##Ask to startx or wayland
 if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
 then
-echo "would you like to start X? (Y/n)"
+echo "would you like to start X (X/x) or Wayland (W/w)?"
 while true; do
 read REPLY
-REPLY="${REPLY:=y}"
+REPLY="${REPLY:=W}"
 case $REPLY in
-    [Yy]) exec startx ;;
+    [Xx]) exec startx ;;
+    [Ww]) exec Hyprland ;;
     [Nn]) break ;;
-    *) printf '%s/n' 'Please answer Y or n.' ;;
+    *) printf '%s/n' 'Please answer X, W or N.' ;;
 esac
 done
 fi

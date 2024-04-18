@@ -103,10 +103,18 @@ function dkdir () {
 }
 
 # Create directory; cd into it; ls dir
-function mkdir () {
-  command mkdir -pv "$1" && \
-  cd $1 && \
-  ls -la
+#function mkdir () {
+#  command mkdir -pv "$1" && \
+#  cd $1 && \
+#  ls -la
+#}
+#
+# credit: https://gist.github.com/kallmanation/2027bb23242e59cb90141c803ffe2703
+mkcd()
+{
+  mkdir -pv "$@" 2> >(sed s/mkdir/mcd/ 1>&2) && \
+  cd "$_" && \
+  ls -al;
 }
 
 ## From DT's gitlab
