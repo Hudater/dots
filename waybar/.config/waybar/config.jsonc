@@ -51,20 +51,49 @@
         "on-click": "kitty -e sudo pacman -Syu", // update system
         "signal": 8
     },
-   "custom/weather" : {
-        "tooltip" : true,
-        "format" : "{}",
-        "interval" : 30,
-        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type" : "json"
+    "custom/weather": {
+    "exec": "python ~/.config/waybar/weather/surendrajat/weather.py",
+    "restart-interval": 300,
+    "return-type": "json",
+    "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/565ecdcee1d34e4a5b92b9b0be7372bcc6e6d298ebb08ee41ea776c1090776b3"
     },
+
+    // "custom/weather" : {
+    //     "tooltip" : true,
+    //     // "format" : "{}",
+    //     "interval" : 600,
+    //     "exec" : "python -O ~/.config/waybar/weather/weather.py"
+    //     // "return-type" : "json"
+    // },
     "tray": {
         "icon-size": 13,
         "spacing": 10
     },
+    // "clock": {
+    // "interval": 60,
+    // "tooltip": true,
+    // "format": "{:%H.%M}",
+    // "tooltip-format": "{:%Y-%m-%d}",
+    // },
     "clock": {
-        "format": "{: %R   %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "interval": 60,
+        "tooltip": true,
+        "format": "{:%a | %I:%M %p}",
+        "timezone": "Asia/Kolkata",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                        "months":     "<span color='#ffead3'><b>{}</b></span>",
+                        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                    }
+                    },
     },
     "backlight": {
         "device": "intel_backlight",

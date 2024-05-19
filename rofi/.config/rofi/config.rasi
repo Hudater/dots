@@ -1,4 +1,10 @@
+/** Basic config file **/
+
 configuration {
-  modi: "drun,window,run,ssh";
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "";
+  display-window: "﩯 ";
+  display-combi: "  ";
 }
-  @theme "/home/putin/.config/rofi/drun.rasi"
+@theme "themes/sidetab-nord.rasi"

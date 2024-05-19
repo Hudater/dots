@@ -1,0 +1,6 @@
+{
+  "key": "$API_KEY",
+  "parameters": "$LOCATION",
+  "unit": "Celsius"
+}
+
