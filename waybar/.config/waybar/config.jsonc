@@ -16,9 +16,11 @@
         "tray",
         "custom/updates",
         "custom/language",
+        "custom/ddcutil",
+        // "custom/brightness",
         // "bluetooth",
-        "battery",
-        "backlight",
+        // "battery",
+        // "backlight",
         "pulseaudio",
         "pulseaudio#microphone"
     ],
@@ -53,19 +55,27 @@
         "signal": 8
     },
     "custom/weather": {
-    "exec": "python ~/.config/waybar/weather/surendrajat/weather.py",
-    "restart-interval": 300,
-    "return-type": "json",
-    "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/ed05e0de91d0a70140e936ed9bf96b7358c7c78be82996b19014124c4e6fddea"
+        "exec": "python ~/.config/waybar/weather/surendrajat/weather.py",
+        "restart-interval": 300,
+        "return-type": "json",
+        "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/ed05e0de91d0a70140e936ed9bf96b7358c7c78be82996b19014124c4e6fddea"
     },
-
-    // "custom/weather" : {
-    //     "tooltip" : true,
-    //     // "format" : "{}",
-    //     "interval" : 600,
-    //     "exec" : "python -O ~/.config/waybar/weather/weather.py"
-    //     // "return-type" : "json"
-    // },
+    // run `sudo usermod $USER -aG i2c` and re-login
+    // Combination of multiple scripts hacked together
+    // https://gist.github.com/nicodebo/297c1e134256ea24abf02a485ce41420
+    // https://gist.github.com/MyrikLD/4467d4dae3f0911cd5094b8440cbf418
+    "custom/ddcutil": {
+        "format": "{percentage}% {icon}",
+        "interval": 1,
+        "format-icons": ["", "", ""],
+        // "exec": "python ~/.config/waybar/brightness/waybar-ddcutil.py",
+        "exec": "bash ~/.config/waybar/brightness/waybar-ddcutil.sh",
+        "on-scroll-up": "ddcutil --noverify --bus 3 setvcp 10 + 10",
+        "on-scroll-down": "ddcutil --noverify --bus 3 setvcp 10 - 10",
+        "on-click": "ddcutil --noverify --bus 3 setvcp 10 0",
+        "on-click-right": "ddcutil --noverify --bus 3 setvcp 10 100",
+        "return-type": "json"
+    },
     "tray": {
         "icon-size": 13,
         "spacing": 10

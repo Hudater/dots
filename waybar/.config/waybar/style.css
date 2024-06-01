@@ -145,3 +145,11 @@ tooltip {
     border-right: 0px;
     margin-left: 0px;
 }
+
+#custom-ddcutil {
+    background: #1e1e2e;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+    border: 1px solid #181825;
+}
