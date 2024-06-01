@@ -16,6 +16,7 @@
         "tray",
         "custom/updates",
         "custom/language",
+        // "bluetooth",
         "battery",
         "backlight",
         "pulseaudio",
@@ -55,7 +56,7 @@
     "exec": "python ~/.config/waybar/weather/surendrajat/weather.py",
     "restart-interval": 300,
     "return-type": "json",
-    "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/565ecdcee1d34e4a5b92b9b0be7372bcc6e6d298ebb08ee41ea776c1090776b3"
+    "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/ed05e0de91d0a70140e936ed9bf96b7358c7c78be82996b19014124c4e6fddea"
     },
 
     // "custom/weather" : {
@@ -94,6 +95,15 @@
                         "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
                     }
                     },
+    },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections} connected",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "backlight": {
         "device": "intel_backlight",

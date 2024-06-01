@@ -22,7 +22,7 @@ weather_icons = {
 # to get your own location_id, go to https://weather.com & search your location.
 # once you choose your location, you can see the location_id in the URL(64 chars long hex string)
 # like this: https://weather.com/en-IN/weather/today/l/c3e96d6cc4965fc54f88296b54449571c4107c73b9638c16aafc83575b4ddf2e
-location_id = "565ecdcee1d34e4a5b92b9b0be7372bcc6e6d298ebb08ee41ea776c1090776b3" #TODO change location here
+location_id = "ed05e0de91d0a70140e936ed9bf96b7358c7c78be82996b19014124c4e6fddea" #TODO change location here
 # location_id = "8139363e05edb302e2d8be35101e400084eadcecdfce5507e77d832ac0fa57ae"
 
 # priv_env_cmd = 'cat $PRIV_ENV_FILE | grep weather_location | cut -d "=" -f 2'
