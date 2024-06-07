@@ -6,7 +6,7 @@ export CODEEDITOR="vscodium"
 export TERMINAL="kitty"
 export BROWSER="brave"
 export COLORTERM="truecolor"
-export WM="awesome"
+export WM="Hyprland"
 #export RANGER_LOAD_DEFAULT_RC=FALSE
 export QT_QPA_PLATFORMTHEME="qt5ct"
 #export QT_STYLE_OVERRIDE=kvantum
@@ -25,7 +25,22 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #  PATH="$PATH:/mnt/IT/Coding/Scripts"
 #fi
 
-##Ask to startx
+# Choose between Wayland or Exiting
+if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
+then
+echo "would you like to start Wayland? (Y/n)"
+while true; do
+read REPLY
+REPLY="${REPLY:=y}"
+case $REPLY in
+    [Yy]) exec Hyprland ;;
+    [Nn]) break ;;
+    *) printf '%s/n' 'Please answer Y or n.' ;;
+esac
+done
+fi
+
+## Choose between Xorg or Exiting
 # if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
 # then
 # echo "would you like to start X? (Y/n)"
@@ -40,18 +55,18 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # done
 # fi
 
-##Ask to startx or wayland
-if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
-then
-echo "would you like to start X (X/x) or Wayland (W/w)?"
-while true; do
-read REPLY
-REPLY="${REPLY:=W}"
-case $REPLY in
-    [Xx]) exec startx ;;
-    [Ww]) exec Hyprland ;;
-    [Nn]) break ;;
-    *) printf '%s/n' 'Please answer X, W or N.' ;;
-esac
-done
-fi
+# ## Choose between Xorg or Wayland
+# if [[ -z $DISPLAY && $XDG_VTNR -le 12 ]];
+# then
+# echo "would you like to start X (X/x) or Wayland (W/w)?"
+# while true; do
+# read REPLY
+# REPLY="${REPLY:=W}"
+# case $REPLY in
+#     [Xx]) exec startx ;;
+#     [Ww]) exec Hyprland ;;
+#     [Nn]) break ;;
+#     *) printf '%s/n' 'Please answer X, W or N.' ;;
+# esac
+# done
+# fi
