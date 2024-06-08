@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/putin/.gtkrc-2.0.mine"
-gtk-theme-name="Juno-ocean"
-gtk-icon-theme-name="Mkos-Big-Sur"
+gtk-theme-name="Juno-mirage-standard-buttons-v40"
+gtk-icon-theme-name="WhiteSur-dark"
 gtk-font-name="SFNS Display 13"
 gtk-cursor-theme-name="El_Capitan_CursorsMODNew"
 gtk-cursor-theme-size=24
