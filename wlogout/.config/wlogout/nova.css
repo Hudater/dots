@@ -67,9 +67,9 @@ button:hover {
   background-image: image(url("./icons/lock-hover.png"));
 }
 
-#hibernate {
+#dpms {
     background-image: image(url("./icons/hibernate.png"));
 }
-#hibernate:hover {
+#dpms:hover {
   background-image: image(url("./icons/hibernate-hover.png"));
 }

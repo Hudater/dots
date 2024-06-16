@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ## /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# This script for selecting wallpapers (SUPER W)
+# This script for selecting wallpapers (SUPER_SHIFT W)
 
 # Wallpapers Path
 wallpaperDir="$WALL_DIR"
@@ -9,7 +9,7 @@ themesDir="$HOME/.config/rofi/themes"
 # Transition config
 FPS=60
 TYPE="any"
-DURATION=3
+DURATION=0
 BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 

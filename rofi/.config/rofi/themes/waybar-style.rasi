@@ -4,7 +4,7 @@ configuration {
     modi:                       "drun,run";
     font:                       "JetBrains Mono Nerd Font 10";
     show-icons:                 true;
-  	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     hover-select:               true;
 }
 
@@ -17,7 +17,6 @@ window {
     anchor:                     center;
     border:                     1px;
     border-radius:              30px;
-
     width:                      55%;
 }
 
@@ -26,7 +25,6 @@ mainbox {
     children:                   [ "img", "listbox"];
     orientation:                horizontal;
     background-color:           transparent;
-
     spacing:                    24px;
 }
 

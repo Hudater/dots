@@ -1,11 +1,12 @@
 /* config - Launcher */
 
 configuration {
-	modi:                         "drun,calc";
+	// modi:                         "drun,calc";
+    modi:                         "drun";
     show-icons:                 true;
     display-calc:               " ";
     display-drun:               " ";
-  	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     font:                        "JetBrains Mono Nerd Font 12";
 }
 

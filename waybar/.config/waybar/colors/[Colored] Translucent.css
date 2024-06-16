@@ -26,11 +26,12 @@ padding: 1px;
 }
 
 window#waybar {
+    /* background-color: rgba(192, 192, 192, 0.3); */
     background-color: rgba(0,0,0,0.3);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 window#waybar.hidden {
