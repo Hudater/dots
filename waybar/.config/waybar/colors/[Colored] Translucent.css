@@ -73,6 +73,13 @@ tooltip label{
     padding-right: 4px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+    /* border-color: transparent; */
+    /* border: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+    animation: none; */
 }
 
 #workspaces button.active {
@@ -82,6 +89,13 @@ tooltip label{
     padding-right: 8px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+    /* border-color: transparent; */
+    /* border: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+    animation: none; */
 }
 
 #workspaces button:hover {
@@ -89,8 +103,15 @@ tooltip label{
 	color: @accent3;
     padding-left: 2px;
     padding-right: 2px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+    /* animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682); */
+    /* border-color: transparent; */
+    /* border: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+    animation: none; */
 }
 
 #workspaces button.focused {
@@ -302,6 +323,7 @@ label:focus {
 
 #taskbar button.active {
     background-color: #7f849c;
+    /* background-color: #d42929; */
     padding-left: 12px;
     padding-right: 12px;
     animation: gradient_f 20s ease-in infinite;
