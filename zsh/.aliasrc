@@ -47,7 +47,7 @@ alias 'stl'='sudo systemctl'
 
 # Directories
 alias 'cfg'='cd ~/.config'
-alias 'sfs'='cd ~/GitIt/SyncFiles'
+alias 'sfs'='cd $SYNCFILES'
 #alias 'dots'='cd ~/GitIt/SyncFiles/dots'
 #alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
 #alias 'svs'='cd ~/GitIt/SyncFiles/services'
