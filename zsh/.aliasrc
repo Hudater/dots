@@ -44,6 +44,7 @@ alias 'ping'='ping -c 5'
 alias 'ktl'='kubectl'
 alias 'mksrv'='mkdocs serve -v --dev-addr=0.0.0.0:4444'
 alias 'stl'='sudo systemctl'
+alias 'paru'='yay'
 
 # Directories
 alias 'cfg'='cd ~/.config'
