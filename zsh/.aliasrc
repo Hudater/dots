@@ -49,6 +49,7 @@ alias 'paru'='yay'
 # Directories
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd $SYNCFILES'
+alias 'bench'='cd /mnt/files/bench_local'
 #alias 'dots'='cd ~/GitIt/SyncFiles/dots'
 #alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
 #alias 'svs'='cd ~/GitIt/SyncFiles/services'
@@ -81,10 +82,10 @@ bindkey "^[[1;5D" backward-word
 # Docker ps
 function dkr () {
   if [[ "$@" == "ps -a" ]]; then
-    command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+    command docker ps --all --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}\t{{.Ports}}" \
     | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
   elif [[ "$@" == "ps" ]]; then
-    command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}" \
+    command docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.State}}\t{{.Ports}}" \
     | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )
   else
     command docker "$@"

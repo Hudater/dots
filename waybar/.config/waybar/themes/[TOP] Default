@@ -27,9 +27,9 @@
 	"custom/separator#dot-line",
 	"memory",
 	"custom/separator#dot-line",
-	"custom/weather",
-	"custom/separator#blank_3",
-	"custom/cava_mviz",
+	"custom/weather"
+	// "custom/separator#blank_3",
+	// "custom/cava_mviz",
 	],
 
 "modules-center": [
