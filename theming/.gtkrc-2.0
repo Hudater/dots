@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/putin/.gtkrc-2.0.mine"
-gtk-theme-name="Juno-mirage-standard-buttons"
+gtk-theme-name="Juno-mirage"
 gtk-icon-theme-name="Cupertino-Catalina"
 gtk-font-name="SFNS Display 13"
 gtk-cursor-theme-name="El_Capitan_CursorsMODNew"

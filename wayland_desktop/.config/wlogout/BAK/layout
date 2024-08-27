@@ -1,0 +1,30 @@
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "[S]hutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "[R]eboot",
+    "keybind" : "r"
+}
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "[L]ock",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl kill-session $XDG_SESSION_ID",
+    "text" : "Logout/[E]xit",
+    "keybind" : "e"
+}
+{
+    "label" : "dpms",
+    "action" : "hyprctl dispatch dpms off",
+    "text" : "Screen [O]ff",
+    "keybind" : "o"
+}
