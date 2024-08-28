@@ -119,6 +119,7 @@ function man() {
 }
 
 
+## Sourcing plugins
 #git
 source ~/.zsh/git/git.plugin.zsh
 
@@ -130,6 +131,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #zsh-expand-all
 #source ~/.zsh/zsh-expand-all.zsh
+
+# zsh-256color
+source ~/.zsh/plugins/zsh-256color.plugin.zsh
 
 #vi mode for zsh
 bindkey -v

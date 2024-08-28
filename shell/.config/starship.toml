@@ -1,99 +1,162 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
-# Pipes ╰─ ╭─
-# Powerline symbols                                     
-# Wedges 🭧🭒 🭣🭧🭓
-# Random noise 🬖🬥🬔🬗
+command_timeout = 5000
+add_newline = true
+continuation_prompt = "▶▶"
 
-# format = """
-# $cmd_duration$username$hostname $directory $git_branch
-# $character
-# """
+# Prompt layout
 format = """
-$cmd_duration$directory $git_branch
-$character
+[╭─────────❯ ](#1c283d)[\uE0B6](#2d333d)\
+$username[\uE0B0](bg:#434C5E fg:#2d333d)\
+$hostname[\uE0B4](fg:#434C5E) \
+[\uE0B6](#182847)$directory\
+[\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status\
+[\uE0B0](fg:#33658A bg:#182847)$cmd_duration\
+[\uE0B4](fg:#182847) \
+[\uE0B6](#8A6455)$jobs\
+[\uE0B4](fg:#8A6455) \
+[\uE0B6](#8A6455)$status\
+[\uE0B4](fg:#8A6455)
+[╰─❯$character](fg:#1c283d)
 """
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[• ](bold fg:green) "
-error_symbol = "[• 󰅙](bold fg:red) "
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+# $fill\
+# [\uE0B6](#8A6455)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$docker_context\
 
-[git_branch]
-style = "bg: green"
-symbol = "󰘬"
-truncation_length = 4
-truncation_symbol = ""
-format = "• [](bold fg:green)[$symbol $branch(:$remote_branch)](fg:black bg:green)[ ](bold fg:green)"
+right_format = """[\uE0B6](fg:#182847)$localip[\uE0B4](fg:#182847)"""
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
+[status]
+style = 'bg:#8A6455'
+# symbol = '🔴'
+# success_symbol = '🟢 SUCCESS'
+format = '[$common_meaning$pipestatus $status$pipestatus_separator$signal_name$maybe_int]($style)'
+map_symbol = true
+pipestatus = true
+disabled = false
 
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
+[jobs]
+symbol = "+"
+number_threshold = 1
+symbol_threshold = 1
+style = "bg:#8A6455"
+format = "[$symbol $number]($style)"
 
-[git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](green)'
-renamed = " ✍️ "
-deleted = " 🗑 "
+[username]
+show_always = true
+style_user = "bg:#2d333d"
+style_root = "bg:#2d333d"
+format = '[$user ]($style)'
 
 [hostname]
 ssh_only = false
-format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan )"
-trim_at = ".companyname.com"
 disabled = false
-
-[line_break]
-disabled = false
-
-[memory_usage]
-disabled = true
-threshold = -1
-symbol = " "
-style = "bold dimmed green"
-
-[time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-
-[username]
-style_user = "bold bg:cyan fg:black"
-style_root = "red bold"
-format = "[](bold fg:cyan)[$user]($style)"
-disabled = false
-show_always = true
+style = "bg:#434C5E"
+format = "[ @ $hostname $ssh_symbol]($style)"
+ssh_symbol = "🌏"
 
 [directory]
-home_symbol = "  "
-read_only = "  "
-style = "bg:green fg:black"
-truncation_length = 6
-truncation_symbol = "••/"
-format = '[](bold fg:green)[$path ]($style)[](bold fg:green)'
+style = "bg:#182847"
+format = "[   $read_only $path ]($style)"
+truncate_to_repo=false
+truncation_length = 4
+truncation_symbol = "…/"
 
+[git_branch]
+symbol = ""
+style = "bg:#33658A"
+format = '[ $symbol   $branch ]($style)'
 
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-
+[git_status]
+style = "bg:#33658A"
+format = '[ $all_status $ahead_behind ]($style)'
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
 [cmd_duration]
-min_time = 0
-format = '[](bold fg:yellow)[ $duration](bold bg:yellow fg:black)[](bold fg:yellow) •• '
+min_time = 1
+disabled = false
+style = "bg:#182847"
+format = '[ took $duration ]($style)'
+
+[localip]
+ssh_only = false
+style = "bg:#182847"
+format = "[🔗$localipv4]($style)"
+disabled = false
+
+[character]
+success_symbol = " [🐼](#ffffff)"
+error_symbol = " [✗](#e83535)"
+vicmd_symbol = " [](#78b892)"
+
+[fill]
+symbol = " "
+style = "bold green"
+
+[time]
+disabled = false
+time_format = "%r" # Hour:Minute Format
+style = "bg:#182847"
+format = '[ $time ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol $context ]($style)$path'
+
+[elixir]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#8A6455"
+format = '[ $symbol ($version) ]($style)'

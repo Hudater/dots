@@ -17,6 +17,7 @@ alias 'cp'="cp -i"                          # confirm before overwriting somethi
 alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
+alias 'rm'='trash-put'
 
 # Conditional aliases
 # Checking if bat binary is called bat or batcat
