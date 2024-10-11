@@ -262,7 +262,7 @@
     "format-alt-click": "click",
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "gnome-system-monitor",
+    "on-click": "kitty --title btop sh -c btop -u 1000",
 },
 
 "disk": {
@@ -330,7 +330,7 @@
     "format-alt-click": "click",
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-    "on-click": "kitty --title btop sh -c 'btop'"
+    "on-click": "kitty --title btop sh -c 'btop -u 1000'"
 },
 
 "mpris": {
