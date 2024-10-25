@@ -1,0 +1,35 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme0n1p2
+UUID=cad5b6c9-777d-47e0-896f-36a9646c68b1	/         	ext4      	rw,relatime	0 1
+#
+# /dev/nvme0n1p1
+UUID=0CF5-2380      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+#
+# /dev/nvme0n1p3 LABEL=LOCAL  XPG NVMe boot drive
+UUID=7e2a7dde-9864-468b-ab32-d7d825a58cc9 /mnt/storage  btrfs   rw,relatime,nofail,ssd,discard=async,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+########### Files and Config storage
+#
+# /dev/sdc1 LABEL=FILES Crucial 240GB SSD
+UUID=933bc19b-a8de-46d7-985d-689a104c748f	/mnt/files	btrfs     	rw,relatime,nofail,ssd,discard=async,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+# /dev/sdd1 LABEL=KING_240  Kingston 240GB SSD
+#UUID=d5660525-9ee7-4df8-a569-cd02e8247fd9	/mnt/king_ssd	btrfs     	rw,relatime,nofail,ssd,discard=async,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+# /dev/sde1 LABEL=SEAGATE_ONE Seagate 1TB 2.5inch HDD
+UUID=8d14b9d2-4101-482c-938c-caa6cf1ab7fe /mnt/seagate_one  btrfs     	rw,relatime,nofail,discard=async,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+########### Mergerfs disks
+#
+# /dev/sda1 LABEL=TOSHIBA_ONE Toshiba 1TB 2.5inch HDD
+UUID=3a57489d-5ec8-4f47-a319-ddc4702b0134	/drives/toshiba_one	btrfs     	rw,relatime,nofail,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+# /dev/sdb1 LABEL=WD10 WD 10TB 3.5inch HDD 
+UUID=a4c14658-f17f-4322-b08b-a7dca5717a6f /drives/wd_ten  btrfs rw,relatime,nofail,discard=async,space_cache=v2,subvolid=5,subvol=/	0 0
+#
+########### Mounting /drives directory to /mnt/merger via mergerfs
+/drives/* /mnt/merger fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,dropcacheonclose=true,category.create=mfs,fsname=mergerfs 0 0
+#
