@@ -142,3 +142,23 @@ Traceback (most recent call last):
     for f in os.listdir(d):
              ^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+10/11/24 (13:37:32) | ERROR: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1357, in refresh
+    for f in os.listdir(d):
+             ^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+10/11/24 (13:38:54) | ERROR: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1357, in refresh
+    for f in os.listdir(d):
+             ^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+10/11/24 (13:38:54) | WARNING: No theme named "tokyo" found!
+10/11/24 (13:39:06) | ERROR: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1357, in refresh
+    for f in os.listdir(d):
+             ^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/putin/.config/bpytop/themes'
+10/11/24 (13:39:06) | WARNING: No theme named "+tokyo" found!

@@ -2,8 +2,8 @@ set number
 set relativenumber
 set nocompatible
 let mapleader = ","
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 
@@ -15,6 +15,8 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'folke/tokyonight.nvim'
+
 "Plug 'ntk148v/vim-horizon'
 "Plug 'mboughaba/i3config.vim'
 
@@ -25,13 +27,13 @@ call plug#end()
 "Colors and customizations
 set termguicolors     " enable true colors support
 set background=dark
-let ayucolor="mirage"   " for dark version of theme
-colorscheme ayu
+"let ayucolor="mirage"   " for dark version of theme
+colorscheme tokyonight-night
 "Airline themes
-"let g:airline_theme='distinguished'
+let g:airline_theme='distinguished'
 "let g:airline_theme='fruit_punch'
 "let g:airline_theme='minimalist'
-let g:airline_theme='tomorrow'
+"let g:airline_theme='tomorrow'
 "let g:airline_theme='zenburn'
 "let g:airline_theme='ayu_mirage'
 

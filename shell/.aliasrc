@@ -1,7 +1,7 @@
 ###########################################Aliases################################
 # Utils
-alias 'l'='exa --icons --group-directories-first -la -gh'
-alias 'ls'='exa --icons --group-directories-first -a'
+alias 'l'='eza --icons --group-directories-first -la -gh'
+alias 'ls'='eza --icons --group-directories-first -a'
 alias 'c'='clear'
 alias 'q'='exit'
 alias 'root'='sudo -i'
