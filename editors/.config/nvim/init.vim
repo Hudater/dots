@@ -78,7 +78,7 @@ au BufNewFile,BufRead /*.rasi setf css
 
 "Enabling global copy-pasta
 vnoremap <C-c> "*y :let @+=@*<CR>
-map <C-v> "+p
+"map <C-v> "+p
 
 "i3config syntax highlighting
 "aug i3config_ft_detection
