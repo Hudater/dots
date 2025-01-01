@@ -1,8 +1,18 @@
-/* config - Launcher */
+* {
+    bg-col:  #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #1e1e2e;
+    selected-col: #1e1e2e;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+
+    width: 600;
+    font: "JetBrainsMono Nerd Font 14";
+}
 
 configuration {
-	// modi:                         "drun,calc";
-    // modi:                         "drun";
     modes: [ drun, filebrowser, ssh, calc ];
     show-icons:                 true;
     display-calc:               " ";
@@ -11,68 +21,73 @@ configuration {
     font:                        "JetBrains Mono Nerd Font 12";
 }
 
-/* Config and colors ----------------------------------------------- */
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
 
-@import "default.rasi"
-
-/* Main Window ------------------------------------------------ */
 window {
     width:                       100%;
     height:                      100%;
     margin:                      0px;
     padding:                     0px;
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
 }
 
-/* Main Box --------------------------------------------------- */
 mainbox {
-
     children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
-    background-color:            transparent;
-
+    background-color: @bg-col;
     spacing:                     24px;
     margin:                      0px;
     padding:                     100px 226px;
 }
 
-/* Inputbar --------------------------------------------------- */
 inputbar {
+    background-color: @bg-col;
     children:                    [ "prompt", "entry" ];
-
     border-radius:               12px;
-    background-color:            @shade-bg;
-    text-color:                  @text;
-
+    text-color:                  @fg-col;
     spacing:                     12px;
     margin:                      0% 28%;
     padding:                     14px;
 }
 
 prompt {
-    background-color:            transparent;
-    text-color:                  inherit;
+    background-color: @blue;
+    // padding: 6px;
+    text-color: @bg-col;
+    // border-radius: 3px;
+    // margin: 20px 0px 0px 20px;
 }
 
 textbox-prompt-colon {
-    expand:                      false;
+    expand: false;
+    // str: ":";
     str:                         "::";
     background-color:            transparent;
     text-color:                  inherit;
 }
 
-/* Entry input ------------------------------------------------ */
 entry {
-    background-color:            transparent;
-    text-color:                  inherit;
+    // padding: 6px;
+    // margin: 20px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col;
     cursor:                      inherit;
     placeholder:                 " ";
     placeholder-color:           inherit;
 }
 
-/* Listview --------------------------------------------------- */
 listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
     cursor:                      "default";
-    columns:                     6;
-    lines:                       4;
+    columns: 6;
+    lines: 4;
+    background-color: @bg-col;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -81,45 +96,24 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    background-color:            transparent;
-    text-color:                  @text;
+    // background-color:            transparent;
+    text-color:                  @fg-col;
 
     spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
 }
 
-/* ---- Mode Switcher ---- */
-mode-switcher{
-    background-color:            transparent;
-    border:                      0px;
-
-    margin: 0px;
-    padding: 0px;
-    spacing: 12px;
-}
-button {
-    padding:                     12px 0px;
-    border-radius:               12px;
-    background-color:            @shade-shadow;
-    text-color:                  @text;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            @shade-bg;
-    border:                      1px solid;
-    border-color:                @selected;
-    text-color:                  white;
-}
-
-/* Elements --------------------------------------------------- */
 element {
+    // padding: 5px;
+    // background-color: @bg-col;
+    text-color: @fg-col;
+
     cursor:                      pointer;
     border-radius:               24px;
     background-color:            transparent;
-    text-color:                  @text;
+    // text-color:                  @text;
     orientation:                 vertical;
-
     spacing:                     16px;
     margin:                      0px;
     padding:                     36px 0px;
@@ -130,4 +124,41 @@ element-icon {
     text-color:                  inherit;
     size:                        72px;
     cursor:                      inherit;
+}
+
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @blue;
+}
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @bg-col-light;
 }

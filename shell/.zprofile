@@ -6,7 +6,7 @@ while true; do
 read REPLY
 REPLY="${REPLY:=y}"
 case $REPLY in
-    [Yy]) exec Hyprland ;;
+    [Yy]) exec sway ;;
     [Nn]) break ;;
     *) printf '%s/n' 'Please answer Y or n.' ;;
 esac

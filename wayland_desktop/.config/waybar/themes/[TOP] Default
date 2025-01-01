@@ -18,7 +18,7 @@
 
 "modules-left": [
 	// "hyprland/workspaces#pacman",
-	"hyprland/workspaces#roman",
+	"wlr/workspaces",
 	"custom/separator#dot-line",
 	// "group/motherboard",
 	"cpu",

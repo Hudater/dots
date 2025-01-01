@@ -1,0 +1,7 @@
+# Variables for applications ------------------------------------------------------------
+set $terminal kitty
+set $fileManager nemo
+set $menu "pkill rofi || rofi -show drun -modi drun,filebrowser,ssh,calc"
+set $gui_browser thorium-browser
+set $code_editor vscodium
+set $reloadWaybar "killall -SIGUSR2 waybar"
