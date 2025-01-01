@@ -3,10 +3,10 @@
 
 include "/home/putin/.gtkrc-2.0.mine"
 gtk-theme-name="Juno-mirage"
-gtk-icon-theme-name="Cupertino-Catalina"
-gtk-font-name="SFNS Display 13"
+gtk-icon-theme-name="McMojave-circle-blue-light"
+gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="El_Capitan_CursorsMODNew"
-gtk-cursor-theme-size=18
+gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
 gtk-button-images=1
