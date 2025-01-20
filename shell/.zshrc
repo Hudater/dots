@@ -38,7 +38,8 @@ autoload -Uz compinit && compinit -i
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #SET VIM AS MANPAGER
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+#export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+### Man to bat
 
 
 
