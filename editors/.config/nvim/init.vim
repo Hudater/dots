@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'folke/tokyonight.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 "Plug 'ntk148v/vim-horizon'
 "Plug 'mboughaba/i3config.vim'
@@ -28,7 +29,8 @@ call plug#end()
 set termguicolors     " enable true colors support
 set background=dark
 "let ayucolor="mirage"   " for dark version of theme
-colorscheme tokyonight-night
+"colorscheme tokyonight-night
+colorscheme catppuccin-mocha
 "Airline themes
 let g:airline_theme='distinguished'
 "let g:airline_theme='fruit_punch'
