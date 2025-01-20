@@ -1,4 +1,5 @@
 set $CFG_DIR ~/.config/sway/configs
+include "~/.config/sway/themes/catppuccin-mocha"
 
 include "$CFG_DIR/keybinds"
 include "$CFG_DIR/outputs"
