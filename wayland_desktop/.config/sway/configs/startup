@@ -37,6 +37,7 @@ bar {
 exec_always swww-daemon &
 exec_always bash $HOME/.config/hypr/scripts/wallpaperRandom.sh
 exec_always swaync &
-exec killall -SIGUSR2 nm-applet --indicator &
+#exec killall -SIGUSR2 nm-applet --indicator &
+exec_always nm-applet
 exec killall -SIGUSR2 blueman-applet &
 exec killall -SIGUSR2 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
