@@ -98,10 +98,10 @@ function dkr () {
 # You need templates already in .config
 # Symlink them via dotfiles repo
 function dkdir () {
-  command mkdir -pv "$1" && \
+  command mkdir -p "$1" && \
   cd $1 && \
   cp -r ~/.config/templates/dockerTemps/* . && \
-  # printf "\n" && \
+  sed -i "s/serviceName/$1/" ./docker-compose.yml ./deploy.sh && \
   chmod +x deploy.sh && \
   ls -la
 }

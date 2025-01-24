@@ -1,16 +1,17 @@
 ---
 services:
   serviceName:
-    image: MAINTAINER/IMAGE:latest
-    container_name: myContainer #
-    hostname: myContainer #
-    restart: unless-stopped
-    volumes:
-      - "${CFG_DIR}/containerCfgDir:/config" #
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - HOSTNAME=${HOSTNAME}
+    image: MAINTAINER/IMAGE:latest
+    container_name: "serviceName-${HOSTNAME}" #
+    hostname: "serviceName-${HOSTNAME}" #
+    restart: unless-stopped
+    volumes:
+      - "${CFG_DIR}/serviceName:/config" #
     ports:
       - 80:80 #
     networks:
