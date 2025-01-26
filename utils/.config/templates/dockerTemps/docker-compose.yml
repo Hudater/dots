@@ -19,6 +19,8 @@ services:
     labels:
       traefik.enable: true
       traefik.http.services.portainer.loadbalancer.server.port: portNumber #
+      traefik.http.routers.serviceName.middlewares: middlewares-authentik@file #add this to any container you want to use the Authentik web proxy
+
 
 networks:
   proxy:
