@@ -1,2 +1,6 @@
-// @theme "~/.config/rofi/themes/catppuccin-mocha.rasi"
-@theme "~/.config/rofi/themes/nova-dark.rasi"
+configuration {
+  modi: "drun,window,run,ssh";
+}
+  @theme "/home/putin/.config/rofi/drun.rasi"
+  // @theme "/home/putin/.config/rofi/catppuccin-mocha.rasi"
+
