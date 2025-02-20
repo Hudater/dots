@@ -95,8 +95,10 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
+    
     // background-color:            transparent;
     text-color:                  @fg-col;
+
     spacing:                     0px;
     margin:                      0px;
     padding:                     0px;

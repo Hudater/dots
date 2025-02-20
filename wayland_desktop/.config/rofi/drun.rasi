@@ -1,18 +1,36 @@
-configuration {
-  show-icons:                     true;
-  icon-theme:                     "korla";
-  font:                           "Neue Haas Unica Pro Bold 9";
-  drun-display-format:            "{name}";
-}
+// * {
+//     bg-col:  #1e1e2e;
+//     bg-col-light: #1e1e2e;
+//     border-col: #1e1e2e;
+//     selected-col: #1e1e2e;
+//     blue: #89b4fa;
+//     fg-col: #cdd6f4;
+//     fg-col2: #f38ba8;
+//     grey: #6c7086;
+
+//     width: 600;
+//     font: "JetBrainsMono Nerd Font 14";
+// }
+
 
 * {
-  background-color:               transparent;
-  background:                     #00000066;
+  background-color:               #1e1e2e;
+  background:                     #1e1e2e;
   background-alt:                 #f2f2f233;
   text-color:                     #f2f2f2;
   selected-text-color:            #ffffff;
   primary:                        #A3BE8C;
   urgent:                         #BF616A;
+}
+
+configuration {
+    modes: [ drun, filebrowser, ssh, calc ];
+    show-icons:                 true;
+    display-calc:               " ";
+    display-drun:               " ";
+    drun-display-format:        "{name}";
+    font:                           "Neue Haas Unica Pro Bold 9";
+    icon-theme:                     "korla";
 }
 
 window {
@@ -34,6 +52,7 @@ prompt {
 inputbar {
   expand:                         false;
   background-color:               #00000020;
+  // background-color:               @background-color;
   border-radius:                  6;
   margin:                         40px 360px 20px 360px;
   padding:                        10px 10px 10px 10px;
@@ -43,14 +62,15 @@ inputbar {
 
 
 entry {
-  /*expand:                        false;
-  width:                          20em;
-  margin:                         40px -275px 20px 355px;
-  border-radius:                  6;
-  padding:                        10px 10px 10px 10px;
-  background-color:               #00000020;
-  border:                         0px 0px solid 0px 0px;
-  border-color:                   @text-color;*/
+  expand:                        true;
+  // width:                          30em;
+  // margin:                         40px -275px 20px 355px;
+  border-radius:                  69;
+  // padding:                        10px 10px 10px 10px;
+  background-color:               @background-color;
+  border:                         10px 10px 10px 10px;
+  // border-color:                   #FFFFFF;
+  border-color:                   @background-color;
   horizontal-align:               0.5;
   font:                           "Neue Haas Unica Pro Bold 9";
   placeholder:                    "Search Applications";
