@@ -95,12 +95,12 @@ function dkr () {
 }
 
 # Create directory with docker-compose.yml, deploy.sh file with chmod +x and README.md
-# You need templates already in .config
-# Symlink them via dotfiles repo
+# You need templates already in .config so symlink them via dotfiles repo
 function dkdir () {
-  command mkdir -p "$1" && \
+  command mkdir -p "$1" "$BAK_CFG_DIR/$1" && \
   cd $1 && \
-  cp -r ~/.config/templates/dockerTemps/* . && \
+  cp -r ~/.config/templates/docker/compose/. . && \
+  cp -r ~/.config/templates/docker/env/. "$BAK_CFG_DIR/$1/" && \
   sed -i "s/serviceName/$1/" ./docker-compose.yml ./deploy.sh && \
   chmod +x deploy.sh && \
   ls -la
