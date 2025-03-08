@@ -4,7 +4,7 @@ CREATE_DIRS=( "${BAK_CFG_DIR}"/serviceName/{multiple,dir,names} "$DB_CFG_DIR"/se
 mkdir -p "${CREATE_DIRS[@]}"
 # ls -alh "$BAK_CFG_DIR"/serviceName/ "$DB_CFG_DIR"
 ls -alh "${CREATE_DIRS[@]}"
-docker compose up -d
+docker compose -f "${COMPOSE_DIR}/serviceName/docker-compose.yml" up -d --force-recreate
 
 
 ### Credit: https://askubuntu.com/a/957278
