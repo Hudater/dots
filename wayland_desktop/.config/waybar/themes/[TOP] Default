@@ -17,8 +17,8 @@
 "margin-bottom": 0,
 
 "modules-left": [
-	// "hyprland/workspaces#pacman",
-	"wlr/workspaces",
+	"hyprland/workspaces#pacman",
+	// "wlr/workspaces",
 	"custom/separator#dot-line",
 	// "group/motherboard",
 	"cpu",
@@ -34,8 +34,8 @@
 
 "modules-center": [
 	// "custom/cycle_wall",
-	"custom/menu",
-	"custom/separator#dot-line",
+	// "custom/menu",
+	// "custom/separator#dot-line",
 	"idle_inhibitor",
 	"custom/separator#dot-line",
 	"clock",
@@ -51,8 +51,9 @@
 	"network#speed",
 	"custom/separator#dot-line",
 	"custom/swaync",
+	"battery",
 	"tray",
-	"mpris", 
+	// "mpris", 
 	"custom/separator#dot-line",
 	"backlight",
 	// "bluetooth",
