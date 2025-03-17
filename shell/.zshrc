@@ -143,3 +143,6 @@ bindkey -v
 # [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
 
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2025-03-15 20:39:09
+export PATH="$PATH:/home/putin/.local/bin"
