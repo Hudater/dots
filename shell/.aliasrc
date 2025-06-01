@@ -18,6 +18,7 @@ alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
 alias 'rm'='trash-put'
+alias 'pls'='sudo !!'
 
 # Conditional aliases
 # Checking if bat binary is called bat or batcat
@@ -35,6 +36,7 @@ then
   alias 'docker-compose'='docker compose'
 fi
 
+
 # Applications
 alias 'btop'="btop --utf-force"
 alias 'v'='nvim'
@@ -43,10 +45,11 @@ alias 'svi'='sudoedit'
 alias 'ping'='ping -c 5'
 #alias 'yay'='paru'
 # alias 'dkr'='docker'
-alias 'ktl'='kubectl'
 alias 'mksrv'='mkdocs serve -v --dev-addr=0.0.0.0:4444'
 alias 'stl'='sudo systemctl'
 alias 'paru'='yay'
+alias 'k'='kubectl'
+alias 'tf'='terraform'
 
 # Directories
 alias 'cfg'='cd ~/.config'
