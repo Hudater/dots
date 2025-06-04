@@ -18,7 +18,9 @@ alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
 alias 'rm'='trash-put'
-alias 'pls'='sudo !!'
+#alias sudo='sudo '
+
+#alias "pls"="sudo !!"
 
 # Conditional aliases
 # Checking if bat binary is called bat or batcat
@@ -55,7 +57,7 @@ alias 'tf'='terraform'
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd $SYNCFILES'
 alias 'bench'='cd /mnt/files/bench_local'
-alias 'projects'='cd /mnt/files/Projects'
+alias 'proj'='cd /mnt/files/Projects'
 #alias 'dots'='cd ~/GitIt/SyncFiles/dots'
 #alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
 #alias 'svs'='cd ~/GitIt/SyncFiles/services'
