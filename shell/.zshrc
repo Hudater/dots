@@ -146,3 +146,6 @@ eval "$(starship init zsh)"
 
 # Created by `pipx` on 2025-03-15 20:39:09
 export PATH="$PATH:/home/putin/.local/bin"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
