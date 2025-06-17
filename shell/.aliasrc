@@ -68,7 +68,7 @@ alias 'proj'='cd /mnt/files/Projects'
 alias 'gc'='git clone'
 alias 'gst'='git status'
 alias 'ga'='git add'
-alias 'gcmsg'='git commit -m'
+alias 'gcmsg'='git commit -S -m'
 alias 'gl'='git pull'
 alias 'gp'='git push'
 
