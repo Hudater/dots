@@ -136,6 +136,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh-256color
 source ~/.zsh/plugins/zsh-256color.plugin.zsh
 
+# docker autocomplete
+source ~/.zsh/docker-autocomplete.zsh
+
 #vi mode for zsh
 bindkey -v
 
