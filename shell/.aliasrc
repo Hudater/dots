@@ -40,7 +40,7 @@ fi
 
 
 # Applications
-alias 'btop'="btop --utf-force"
+#alias 'btop'="btop --utf-force"
 alias 'v'='nvim'
 alias 'vi'='nvim'
 alias 'svi'='sudoedit'

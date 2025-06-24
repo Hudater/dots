@@ -1,0 +1,14 @@
+#background = 282c34
+#foreground = ffffff
+
+keybind = ctrl+z=close_surface
+#keybind = ctrl+d=new_split:right
+
+#font-family = FiraCode Nerd Font
+font-size = 13
+
+
+theme = "Kanagawa Wave"
+#theme = vesper
+copy-on-select = clipboard
+background-opacity = 0.90
