@@ -12,3 +12,4 @@ theme = "Kanagawa Wave"
 #theme = vesper
 copy-on-select = clipboard
 background-opacity = 0.90
+app-notifications = no-clipboard-copy
