@@ -139,6 +139,10 @@ source ~/.zsh/plugins/zsh-256color.plugin.zsh
 # docker autocomplete
 source ~/.zsh/docker-autocomplete.zsh
 
+# headscale autocomplete
+source ~/.zsh/headscale-autocomplete.zsh
+
+
 #vi mode for zsh
 bindkey -v
 
