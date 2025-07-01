@@ -142,6 +142,10 @@ source ~/.zsh/docker-autocomplete.zsh
 # headscale autocomplete
 source ~/.zsh/headscale-autocomplete.zsh
 
+# lxc autocomplete
+source ~/.zsh/lxc-autocomplete.zsh
+
+
 
 #vi mode for zsh
 bindkey -v
