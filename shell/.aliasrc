@@ -56,6 +56,10 @@ alias 'tf'='terraform'
 alias 'ot'='tofu'
 alias 'ts'='tailscale'
 
+# Crowdsec cscli
+alias cslist="docker exec crowdsec cscli decisions list"
+alias csdel="docker exec crowdsec cscli decisions delete --ip $1"
+
 # Directories
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd $SYNCFILES'
