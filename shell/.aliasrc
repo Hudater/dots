@@ -53,6 +53,7 @@ alias 'stl'='sudo systemctl'
 alias 'paru'='yay'
 alias 'k'='kubectl'
 alias 'tf'='terraform'
+alias 'ot'='tofu'
 alias 'ts'='tailscale'
 
 # Directories
