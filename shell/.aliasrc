@@ -114,7 +114,7 @@ function dkdir () {
   cd $1 && \
   cp -r ~/.config/templates/docker/compose/. . && \
   cp -r ~/.config/templates/docker/env/. "$BAK_CFG_DIR/$1/" && \
-  sed -i "s/serviceName/$1/" ./docker-compose.yml ./deploy.sh && \
+  sed -i "s/serviceName/$1/g" ./docker-compose.yml ./deploy.sh ./README.md && \
   chmod +x deploy.sh && \
   ls -la
 }

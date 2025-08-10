@@ -150,13 +150,13 @@ source ~/.zsh/lxc-autocomplete.zsh
 #vi mode for zsh
 bindkey -v
 
-# To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
-# [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
-
-eval "$(starship init zsh)"
-
 # Created by `pipx` on 2025-03-15 20:39:09
 export PATH="$PATH:/home/putin/.local/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+# To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
+# [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
+
+eval "$(starship init zsh)"
+

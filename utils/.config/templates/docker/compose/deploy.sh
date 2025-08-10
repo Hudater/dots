@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 CREATE_DIRS=( "${BAK_CFG_DIR}"/serviceName/{multiple,dir,names} "$DB_CFG_DIR"/serviceName "$CFG_DIR"/serviceName )
 mkdir -p "${CREATE_DIRS[@]}"

@@ -1,1 +1,1 @@
-# <serviceName>: used to 
+# serviceName: used to 
