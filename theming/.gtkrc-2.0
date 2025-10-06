@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/putin/.gtkrc-2.0.mine"
-gtk-theme-name="Kanagawa-BL"
+gtk-theme-name="Kanagawa-B-LB"
 gtk-icon-theme-name="Kanagawa"
 gtk-font-name="Cantarell 13"
 gtk-cursor-theme-name="El_Capitan_CursorsMODNew"

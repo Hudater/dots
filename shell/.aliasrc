@@ -17,7 +17,7 @@ alias 'cp'="cp -i"                          # confirm before overwriting somethi
 alias 'df'='df -h'                          # human-readable sizes
 alias 'free'='free -m'                      # show sizes in MB
 alias 'pr'='cd "$OLDPWD"'
-alias 'rm'='trash-put'
+alias 'rm'='gtrash put'
 #alias sudo='sudo '
 alias extip='curl -sS https://www.daveeddy.com/ip'
 

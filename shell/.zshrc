@@ -145,8 +145,8 @@ source ~/.zsh/headscale-autocomplete.zsh
 # lxc autocomplete
 source ~/.zsh/lxc-autocomplete.zsh
 
-
-
+# gtrash autocomplete
+source ~/.zsh/gtrash-completion.zsh
 #vi mode for zsh
 bindkey -v
 

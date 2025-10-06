@@ -3,6 +3,9 @@
 
 keybind = ctrl+z=close_surface
 #keybind = ctrl+d=new_split:right
+## Ctrl+Backspace deleted whole words
+keybind = ctrl+backspace=text:\x17
+
 
 #font-family = FiraCode Nerd Font
 font-size = 13
@@ -13,3 +16,4 @@ theme = "Kanagawa Wave"
 copy-on-select = clipboard
 background-opacity = 0.90
 app-notifications = no-clipboard-copy
+
