@@ -1,0 +1,6 @@
+configuration {
+  modi: "drun,window,run,ssh";
+}
+  @theme "/home/putin/.config/rofi/drun.rasi"
+  // @theme "/home/putin/.config/rofi/catppuccin-mocha.rasi"
+

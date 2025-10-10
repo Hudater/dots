@@ -4,7 +4,7 @@ configuration {
     modi:                       "drun,run";
     font:                       "JetBrains Mono Nerd Font 10";
     show-icons:                 true;
-  	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     hover-select:               true;
 }
 
