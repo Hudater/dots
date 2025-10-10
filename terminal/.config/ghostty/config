@@ -5,7 +5,8 @@ keybind = ctrl+z=close_surface
 #keybind = ctrl+d=new_split:right
 ## Ctrl+Backspace deleted whole words
 keybind = ctrl+backspace=text:\x17
-
+keybind = ctrl+shift+up=scroll_page_up
+keybind = ctrl+shift+down=scroll_page_down
 
 #font-family = FiraCode Nerd Font
 font-size = 13

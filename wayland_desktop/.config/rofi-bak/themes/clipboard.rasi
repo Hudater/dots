@@ -3,7 +3,7 @@
 configuration {
     modi:                        "drun";
     show-icons:                  false;
-  	drun-display-format:         "{name}";
+    drun-display-format:         "{name}";
     font:                        "JetBrainsMono Nerd Font 14";
 }
 
@@ -42,7 +42,7 @@ inputbar {
 }
 
 dummy {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 textbox-help {
