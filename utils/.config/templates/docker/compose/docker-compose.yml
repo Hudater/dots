@@ -22,6 +22,7 @@ services:
       traefik.enable: true
       traefik.http.services.serviceName.loadbalancer.server.port: portNumber #
       traefik.http.routers.serviceName.middlewares: oauth@file #add this to any container you want to use the Authentik web proxy
+      traefik.http.routers.serviceName.rule: Host(`serviceName.${CF_DOMAIN}`)
       com.centurylinklabs.watchtower.monitor-only: true #to only monitor update with watchtower not install
 
 networks:
