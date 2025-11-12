@@ -3,7 +3,8 @@
 configuration {
     modi:                         "drun,calc";
     //modi:                         "drun";
-    modes: [ drun, filebrowser, ssh, calc ];
+    modes: [ drun, ssh, calc ];
+    // modes: [ drun, filebrowser, ssh, calc ];
     show-icons:                 true;
     display-calc:               " ";
     display-drun:               " ";
