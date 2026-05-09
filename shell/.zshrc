@@ -147,6 +147,19 @@ source ~/.zsh/lxc-autocomplete.zsh
 
 # gtrash autocomplete
 source ~/.zsh/gtrash-completion.zsh
+
+# bootdev autocomplete
+source ~/.zsh/bootdev-completion.zsh
+
+# netbird autocomplete
+source ~/.zsh/netbird-completion.zsh
+
+# coder autocomplete
+source ~/.zsh/coder-autocomplete.zsh
+
+# helm autocomplete
+source ~/.zsh/helm-autocomplete.zsh
+
 #vi mode for zsh
 bindkey -v
 
@@ -154,7 +167,9 @@ bindkey -v
 export PATH="$PATH:/home/putin/.local/bin"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+complete -o nospace -C /opt/homebrew/bin/terraform
+#complete -o nospace -C /usr/bin/terraform terraform
+
 # To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
 # [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
 
@@ -163,3 +178,7 @@ eval "$(starship init zsh)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

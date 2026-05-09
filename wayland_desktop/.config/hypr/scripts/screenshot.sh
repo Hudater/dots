@@ -6,7 +6,7 @@ iDIR="$HOME/.config/swaync/icons"
 sDIR="."
 notify_cmd_shot="notify-send -h string:x-canonical-private-synchronous:shot-notify -u low -i ${iDIR}/picture.png"
 
-time=$(date +"%F_%I:%M-%p")
+time=$(date +"%F_%I-%M-%p")
 dir="/mnt/files/Screenshots/pc"
 file="Screenshot_${time}_${RANDOM}.png"
 
