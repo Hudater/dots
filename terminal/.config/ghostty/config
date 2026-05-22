@@ -3,6 +3,8 @@
 
 keybind = ctrl+z=close_surface
 #keybind = ctrl+d=new_split:right
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_tab
 ## Ctrl+Backspace deleted whole words
 keybind = ctrl+backspace=text:\x17
 keybind = ctrl+shift+up=scroll_page_up
@@ -17,4 +19,12 @@ theme = "Kanagawa Wave"
 copy-on-select = clipboard
 background-opacity = 0.90
 app-notifications = no-clipboard-copy
+
+# Split panes with Ctrl + Direction
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+l=new_split:right
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+j=new_split:down
+# Close the active split pane
+keybind = ctrl+q=close_surface
 
