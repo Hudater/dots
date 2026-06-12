@@ -67,7 +67,7 @@ csdel() {
 alias 'cfg'='cd ~/.config'
 alias 'sfs'='cd $SYNCFILES'
 alias 'bench'='cd /mnt/files/bench_local'
-alias 'proj'='cd /mnt/files/Projects'
+alias 'proj'='cd $PROJECTS_DIR'
 #alias 'dots'='cd ~/GitIt/SyncFiles/dots'
 #alias 'dpr'='cd ~/GitIt/SyncFiles/dotsPr'
 #alias 'svs'='cd ~/GitIt/SyncFiles/services'
