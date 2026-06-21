@@ -4,6 +4,7 @@
 
 iDIR="$HOME/.config/swaync/icons"
 sDIR="."
+popScript="$HOME/.config/hypr/scripts/shotpop.py"
 notify_cmd_shot="notify-send -h string:x-canonical-private-synchronous:shot-notify -u low -i ${iDIR}/picture.png"
 
 time=$(date +"%F_%I-%M-%p")
@@ -80,9 +81,12 @@ shotarea() {
 	if [[ -s "$tmpfile" ]]; then
 		wl-copy <"$tmpfile"
 		mv "$tmpfile" "$dir/$file"
+		# Mac-style thumbnail popup (non-blocking)
+		python3 "${sDIR}/shotpop.py" "$dir/$file" &
+	else
+		rm -f "$tmpfile"
+		notify_view
 	fi
-	rm "$tmpfile"
-	notify_view
 }
 
 shotactive() {
@@ -98,8 +102,14 @@ shotactive() {
 shotswappy() {
 	tmpfile=$(mktemp)
 	grim -g "$(slurp)" - >"$tmpfile" && "${sDIR}/Sounds.sh" --screenshot && notify_view "swappy"
-	swappy -f - <"$tmpfile"
-	rm "$tmpfile"
+	if [[ -s "$tmpfile" ]]; then
+		# Move the file to the screenshots directory
+		mv "$tmpfile" "$dir/$file"
+		# Mac-style thumbnail popup (non-blocking)
+		python3 "$popScript" "$dir/$file" &
+	else
+			rm -f "$tmpfile"
+	fi
 }
 
 
