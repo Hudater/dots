@@ -1,199 +1,118 @@
-
+#####################################################################################
+########################## REFACTORED #################################################
+#####################################################################################
 # Kiro CLI pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+#[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
 ##################################Sourcing#############################################
-#
-#Sourcing powerlevel10k theme
 # source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
-#aliasrc source
-[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
-
 ##################################Other-Settings#########################################
-#
 #fixing compdef error for git
 autoload -Uz compinit
 compinit
 
-# Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' \
 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
 '+l:|?=** r:|?=**'
 
-# Preferred editor for local and remote sessions
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#  else
-#  export EDITOR='nvim'
-# fi
-
-# Initialize the autocompletion
 autoload -Uz compinit && compinit -i
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#SET VIM AS MANPAGER
-#export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
-### Man to bat
-
-
-
-#################################History-tweaks#########################################
-#
-#Increase history size file
+##################################History-tweaks#########################################
+# ## TODO: maybe in some utopian society there will be XDG compliance
 HISTFILE=~/.zsh_history
-SAVEHIST=10000
-HISTSIZE=10000
-setopt HIST_IGNORE_SPACE
-
+HISTSIZE=50000
+SAVEHIST=50000
+setopt EXTENDED_HISTORY       # timestamp each entry
+setopt HIST_IGNORE_SPACE      # ignore commands starting with space
+setopt HIST_IGNORE_DUPS       # ignore immediate dupes
+setopt HIST_IGNORE_ALL_DUPS   # remove older dupe when new one added
+setopt HIST_SAVE_NO_DUPS      # don't write dupes to file
+setopt HIST_FIND_NO_DUPS      # skip dupes when searching
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY          # share across sessions live
+setopt INC_APPEND_HISTORY     # write immediately, not just on exit
 
 #Navigate to directories without ls
 setopt autocd
 
-#Delete empty lines from history file
-setopt HIST_REDUCE_BLANKS
-
-#Do not add history and fc commands to the history
-setopt HIST_NO_STORE
-
-#Delete duplicates in history
-preexec() {
-   echo "$(history 0 | sort -k2 -k1nr | \
-   uniq -f1 | sort -n | cut -c8-)" > $HISTFILE
-}
-
-disable r
-alias r=' reset'
-hf() {
-  echo "$(history 1 | sort -k2 -k1nr | \
-  uniq -f1 | sort -n | cut -c8-)" > $HISTFILE
-  BUFFER="r"; zle accept-line
-}; zle -N hf; bindkey '^[[Z' hf # Shift+Tab
-
-#Ignore a record starting with a space
-setopt HIST_IGNORE_SPACE
-
-
 #################################Plugins################################################
-#
-##colored man pages
-if [[ "$OSTYPE" = solaris* ]]
-then
-	if [[ ! -x "$HOME/bin/nroff" ]]
-	then
-		mkdir -p "$HOME/bin"
-		cat > "$HOME/bin/nroff" <<EOF
-#!/bin/sh
-if [ -n "\$_NROFF_U" -a "\$1,\$2,\$3" = "-u0,-Tlp,-man" ]; then
-	shift
-	exec /usr/bin/nroff -u\$_NROFF_U "\$@"
-fi
-#-- Some other invocation of nroff
-exec /usr/bin/nroff "\$@"
-EOF
-		chmod +x "$HOME/bin/nroff"
-	fi
-fi
-
-function colored() {
-	command env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-		PAGER="${commands[less]:-$PAGER}" \
-		_NROFF_U=1 \
-		PATH="$HOME/bin:$PATH" \
-			"$@"
-}
-
-function man() {
-	colored man "$@"
-}
-
-
-## Sourcing plugins
-#git
-source ~/.zsh/git/git.plugin.zsh
-
-#zsh-autosuggestion
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-#zsh-syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#zsh-expand-all
-#source ~/.zsh/zsh-expand-all.zsh
-
-# zsh-256color
-source ~/.zsh/plugins/zsh-256color.plugin.zsh
-
-# docker autocomplete
-source ~/.zsh/docker-autocomplete.zsh
-
-# headscale autocomplete
-source ~/.zsh/headscale-autocomplete.zsh
-
-# lxc autocomplete
-source ~/.zsh/lxc-autocomplete.zsh
-
-# gtrash autocomplete
-source ~/.zsh/gtrash-completion.zsh
-
-# bootdev autocomplete
-source ~/.zsh/bootdev-completion.zsh
-
-# netbird autocomplete
-source ~/.zsh/netbird-completion.zsh
-
-# coder autocomplete
-source ~/.zsh/coder-autocomplete.zsh
-
-# helm autocomplete
-source ~/.zsh/helm-autocomplete.zsh
+source ~/.config/zsh/git/git.plugin.zsh
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-256color.plugin.zsh
+source ~/.config/zsh/docker-autocomplete.zsh
+source ~/.config/zsh/headscale-autocomplete.zsh
+source ~/.config/zsh/lxc-autocomplete.zsh
+source ~/.config/zsh/gtrash-completion.zsh
+source ~/.config/zsh/bootdev-completion.zsh
+source ~/.config/zsh/netbird-completion.zsh
+source ~/.config/zsh/coder-autocomplete.zsh
+source ~/.config/zsh/helm-autocomplete.zsh
+source ~/.config/zsh/zed-autocomplete.zsh
 
 #vi mode for zsh
 bindkey -v
+
+##################################Aliases & Functions####################################
+for f in "$HOME/.config/personal/pers-alias.zsh" \
+         "$HOME/.config/personal/pers-function.zsh" \
+         "$HOME/.config/work/work-alias.zsh" \
+         "$HOME/.config/work/work-func.zsh"; do
+  [ -f "$f" ] && source "$f"
+done
 
 # Created by `pipx` on 2025-03-15 20:39:09
 export PATH="$PATH:/home/putin/.local/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform
-#complete -o nospace -C /usr/bin/terraform terraform
-
-# To customize prompt, run `p10k configure` or edit ~/GitIt/dots/zsh/.p10k.zsh.
-# [[ ! -f ~/GitIt/dots/zsh/.p10k.zsh ]] || source ~/GitIt/dots/zsh/.p10k.zsh
-
-eval "$(starship init zsh)"
-
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+#[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
 
+# Load Angular CLI autocompletion.
+# source <(ng completion script)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+if [[ "$TERM_PROGRAM" != "kiro" ]]; then
+    eval "$(starship init zsh)"
+else
+    PROMPT='%~ %$ '
+fi
+
+##################################fzf#####################################################
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
 # Kiro CLI post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+#[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
 
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# Added by Antigravity CLI installer
+export PATH="/Users/harshit_tech/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/harshit_tech/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Added by cua-driver-rs installer — see https://github.com/trycua/cua
+export PATH="/Users/harshit_tech/.local/bin:$PATH"
+unset SSH_AUTH_SOCK
