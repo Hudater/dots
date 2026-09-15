@@ -1,3 +1,11 @@
+# =============================================================================
+# COMMON CONFIG
+# Top-level settings shared by every env. NOTE: AeroSpace loads exactly ONE
+# TOML file and has NO include/import directive (checked upstream docs), so
+# work/personal envs live below as [mode.work.binding] / [mode.personal.binding]
+# sections in this same file. aerospace.toml.BAK is a frozen copy, do not touch.
+# =============================================================================
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -43,11 +51,17 @@ automatically-unhide-macos-hidden-apps = false
 
 # List of workspaces that should stay alive even when they contain no windows,
 # even when they are invisible.
+# Work env: W1-W0. Personal env: P1-P0. Commons (both envs): A/S/D/F.
+# NOTE: legacy "1"-"9" names were dropped on purpose so old workspaces die out.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+persistent-workspaces = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W0",
+                         "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P0",
+                         "A", "S", "D", "F"]
 
 # A callback that runs every time binding mode changes
+# Env switches notify explicitly in their own bindings (no extra deps needed),
+# so this stays empty.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
@@ -73,10 +87,13 @@ on-mode-changed = []
     outer.top =        0
     outer.right =      0
 
-# 'main' binding mode declaration
+# =============================================================================
+# MODE: main — LOBBY (neutral, no env workspaces)
+# Pick an env: alt-e -> work, alt-shift-e -> personal. Commons (asdf) work here.
+# 'main' binding mode must be always presented.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
+# =============================================================================
 [mode.main.binding]
 
     # All possible keys:
@@ -105,7 +122,7 @@ on-mode-changed = []
         activate
     end tell
     ' '''
-        
+
     alt-b = '''exec-and-forget osascript -e '
     tell application "Safari"
         activate
@@ -133,76 +150,26 @@ on-mode-changed = []
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    # alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-    # alt-b = 'workspace B'
-    # alt-c = 'workspace C'
-    # alt-d = 'workspace D'
-    # alt-e = 'workspace E'
-    # alt-f = 'workspace F'
-    # alt-g = 'workspace G'
-    # alt-i = 'workspace I'
-    # alt-m = 'workspace M'
-    # alt-n = 'workspace N'
-    # alt-o = 'workspace O'
-    # alt-p = 'workspace P'
-    # alt-q = 'workspace Q'
-    # alt-r = 'workspace R'
-    # alt-s = 'workspace S'
-    # alt-t = 'workspace T'
-    # alt-u = 'workspace U'
-    # alt-v = 'workspace V'
-    # alt-w = 'workspace W'
-    # alt-x = 'workspace X'
-    # alt-y = 'workspace Y'
-    # alt-z = 'workspace Z'
+    # Env entry. Numbers are intentionally NOT bound here (lobby has no env).
+    # NOTE: asymmetry is on purpose — inside work/personal, alt-e means "other env".
+    alt-e = 'mode work'
+    alt-shift-e = 'mode personal'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
+    # Commons (shared by both envs): A=Ente Auth, S=Sublime, D=Bitwarden, F=spare.
+    alt-a = 'workspace A'
+    alt-s = 'workspace S'
+    alt-d = 'workspace D'
+    alt-f = 'workspace F'
+    alt-shift-a = 'move-node-to-workspace A'
+    alt-shift-s = 'move-node-to-workspace S'
+    alt-shift-d = 'move-node-to-workspace D'
+    alt-shift-f = 'move-node-to-workspace F'
 
     # Random wallpaper (mac-only script, stowed to ~/.config/wallpaper-randomizer)
     alt-shift-n = 'exec-and-forget WALL_DIR=~/syncthing/PC-Walls ~/.config/wallpaper-randomizer/wallpaperRandom.sh'
-    # alt-shift-a = 'move-node-to-workspace A'
-    # alt-shift-b = 'move-node-to-workspace B'
-    # alt-shift-c = 'move-node-to-workspace C'
-    # alt-shift-d = 'move-node-to-workspace D'
-    # alt-shift-e = 'move-node-to-workspace E'
-    # alt-shift-f = 'move-node-to-workspace F'
-    # alt-shift-g = 'move-node-to-workspace G'
-    # alt-shift-i = 'move-node-to-workspace I'
-    # alt-shift-m = 'move-node-to-workspace M'
-    # alt-shift-n = 'move-node-to-workspace N'
-    # alt-shift-o = 'move-node-to-workspace O'
-    # alt-shift-p = 'move-node-to-workspace P'
-    # alt-shift-q = 'move-node-to-workspace Q'
-    # alt-shift-r = 'move-node-to-workspace R'
-    # alt-shift-s = 'move-node-to-workspace S'
-    # alt-shift-t = 'move-node-to-workspace T'
-    # alt-shift-u = 'move-node-to-workspace U'
-    # alt-shift-v = 'move-node-to-workspace V'
-    # alt-shift-w = 'move-node-to-workspace W'
-    # alt-shift-x = 'move-node-to-workspace X'
-    # alt-shift-y = 'move-node-to-workspace Y'
-    # alt-shift-z = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+    # NOTE: this is global and WILL jump across envs. Kept on purpose.
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -210,8 +177,172 @@ on-mode-changed = []
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# =============================================================================
+# MODE: work — WORK ENV (W1-W0 + commons)
+# Same keys as personal, different workspaces. Toggle with alt-e (lands you in
+# personal mode on the CURRENT workspace — press the number to jump, e.g.
+# alt-e then alt-3 lands P3). Tray icon shows W<n> so env is always visible.
+# (Key/modifier reference lives in [mode.main.binding] above.)
+# =============================================================================
+[mode.work.binding]
+
+    alt-enter = '''exec-and-forget osascript -e '
+    tell application "ghostty"
+        do script ""
+        activate
+    end tell
+    ' '''
+
+    alt-b = '''exec-and-forget osascript -e '
+    tell application "Safari"
+        activate
+    end tell
+    ' '''
+
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # Work workspaces 1..0
+    alt-1 = 'workspace W1'
+    alt-2 = 'workspace W2'
+    alt-3 = 'workspace W3'
+    alt-4 = 'workspace W4'
+    alt-5 = 'workspace W5'
+    alt-6 = 'workspace W6'
+    alt-7 = 'workspace W7'
+    alt-8 = 'workspace W8'
+    alt-9 = 'workspace W9'
+    alt-0 = 'workspace W0'
+
+    alt-shift-1 = 'move-node-to-workspace W1'
+    alt-shift-2 = 'move-node-to-workspace W2'
+    alt-shift-3 = 'move-node-to-workspace W3'
+    alt-shift-4 = 'move-node-to-workspace W4'
+    alt-shift-5 = 'move-node-to-workspace W5'
+    alt-shift-6 = 'move-node-to-workspace W6'
+    alt-shift-7 = 'move-node-to-workspace W7'
+    alt-shift-8 = 'move-node-to-workspace W8'
+    alt-shift-9 = 'move-node-to-workspace W9'
+    alt-shift-0 = 'move-node-to-workspace W0'
+
+    # Commons (same targets as every other mode)
+    alt-a = 'workspace A'
+    alt-s = 'workspace S'
+    alt-d = 'workspace D'
+    alt-f = 'workspace F'
+    alt-shift-a = 'move-node-to-workspace A'
+    alt-shift-s = 'move-node-to-workspace S'
+    alt-shift-d = 'move-node-to-workspace D'
+    alt-shift-f = 'move-node-to-workspace F'
+
+    # Random wallpaper (same as main)
+    alt-shift-n = 'exec-and-forget WALL_DIR=~/syncthing/PC-Walls ~/.config/wallpaper-randomizer/wallpaperRandom.sh'
+
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # Env toggle -> personal (notification keeps the switch visible, zero deps)
+    alt-e = ['mode personal', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+    alt-shift-e = ['mode personal', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+
+    alt-shift-semicolon = 'mode service'
+
+# =============================================================================
+# MODE: personal — PERSONAL ENV (P1-P0 + commons)
+# Mirror of work. Toggle with alt-e (lands in work mode on current workspace).
+# =============================================================================
+[mode.personal.binding]
+
+    alt-enter = '''exec-and-forget osascript -e '
+    tell application "ghostty"
+        do script ""
+        activate
+    end tell
+    ' '''
+
+    alt-b = '''exec-and-forget osascript -e '
+    tell application "Safari"
+        activate
+    end tell
+    ' '''
+
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # Personal workspaces 1..0
+    alt-1 = 'workspace P1'
+    alt-2 = 'workspace P2'
+    alt-3 = 'workspace P3'
+    alt-4 = 'workspace P4'
+    alt-5 = 'workspace P5'
+    alt-6 = 'workspace P6'
+    alt-7 = 'workspace P7'
+    alt-8 = 'workspace P8'
+    alt-9 = 'workspace P9'
+    alt-0 = 'workspace P0'
+
+    alt-shift-1 = 'move-node-to-workspace P1'
+    alt-shift-2 = 'move-node-to-workspace P2'
+    alt-shift-3 = 'move-node-to-workspace P3'
+    alt-shift-4 = 'move-node-to-workspace P4'
+    alt-shift-5 = 'move-node-to-workspace P5'
+    alt-shift-6 = 'move-node-to-workspace P6'
+    alt-shift-7 = 'move-node-to-workspace P7'
+    alt-shift-8 = 'move-node-to-workspace P8'
+    alt-shift-9 = 'move-node-to-workspace P9'
+    alt-shift-0 = 'move-node-to-workspace P0'
+
+    # Commons (same targets as every other mode)
+    alt-a = 'workspace A'
+    alt-s = 'workspace S'
+    alt-d = 'workspace D'
+    alt-f = 'workspace F'
+    alt-shift-a = 'move-node-to-workspace A'
+    alt-shift-s = 'move-node-to-workspace S'
+    alt-shift-d = 'move-node-to-workspace D'
+    alt-shift-f = 'move-node-to-workspace F'
+
+    # Random wallpaper (same as main)
+    alt-shift-n = 'exec-and-forget WALL_DIR=~/syncthing/PC-Walls ~/.config/wallpaper-randomizer/wallpaperRandom.sh'
+
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # Env toggle -> work (notification keeps the switch visible, zero deps)
+    alt-e = ['mode work', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+    alt-shift-e = ['mode work', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+
+    alt-shift-semicolon = 'mode service'
+
+# =============================================================================
+# MODE: service (unchanged, esc returns to main lobby)
+# =============================================================================
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
@@ -226,18 +357,52 @@ on-mode-changed = []
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
 
+# =============================================================================
+# COMMON: auto-route windows (global, applies in every mode)
+# =============================================================================
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 check-further-callbacks = true
 run = "layout floating"
 
+# Commons: Ente Auth -> A, Sublime Text -> S, Bitwarden -> D
+[[on-window-detected]]
+if.app-id = "io.ente.auth.mac"
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-id = "com.sublimetext.4"
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = "com.bitwarden.desktop"
+run = "move-node-to-workspace D"
+
+# =============================================================================
+# COMMON: monitor assignment (every workspace follows the secondary/main pattern)
+# =============================================================================
 [workspace-to-monitor-force-assignment]
-1 = ['secondary', 'main']
-2 = ['secondary', 'main']
-3 = ['secondary', 'main']
-4 = ['secondary', 'main']
-5 = ['secondary', 'main']
-6 = ['secondary', 'main']
-7 = ['secondary', 'main']
-8 = ['secondary', 'main']
-9 = ['secondary', 'main']
+W1 = ['secondary', 'main']
+W2 = ['secondary', 'main']
+W3 = ['secondary', 'main']
+W4 = ['secondary', 'main']
+W5 = ['secondary', 'main']
+W6 = ['secondary', 'main']
+W7 = ['secondary', 'main']
+W8 = ['secondary', 'main']
+W9 = ['secondary', 'main']
+W0 = ['secondary', 'main']
+P1 = ['secondary', 'main']
+P2 = ['secondary', 'main']
+P3 = ['secondary', 'main']
+P4 = ['secondary', 'main']
+P5 = ['secondary', 'main']
+P6 = ['secondary', 'main']
+P7 = ['secondary', 'main']
+P8 = ['secondary', 'main']
+P9 = ['secondary', 'main']
+P0 = ['secondary', 'main']
+A = ['secondary', 'main']
+S = ['secondary', 'main']
+D = ['secondary', 'main']
+F = ['secondary', 'main']
