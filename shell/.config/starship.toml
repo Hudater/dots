@@ -2,41 +2,25 @@ command_timeout = 5000
 add_newline = true
 continuation_prompt = "▶▶"
 
-# Prompt layout
+# Two-line powerline. Line one is interlocked pills; everything conditional
+# (venv, clusters, profiles, duration) lives inside one dark zone with a
+# single background, so vanishing segments never break a joint. The tradeoff
+# stands: a very narrow pane still folds the line, but it is much shorter now.
+# Slimmed corner: every character counts toward split-pane fits.
 format = """
-[╭─────────❯ ](#1c283d)[\uE0B6](#2d333d)\
+[╭ ](#1c283d)[\uE0B6](#2d333d)\
 $username[\uE0B0](bg:#434C5E fg:#2d333d)\
 $hostname[\uE0B4](fg:#434C5E) \
 [\uE0B6](#182847)$directory\
 [\uE0B0](fg:#182847 bg:#33658A)$git_branch$git_status\
-[\uE0B0](fg:#33658A bg:#182847)$cmd_duration\
-[\uE0B4](fg:#182847) \
-[\uE0B6](fg:#031f30)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$python$rust$scala$docker_context\
+[\uE0B0](fg:#33658A bg:#031f30)[ ](bg:#031f30)$python${custom.k8s_prod}${custom.k8s_stage}${custom.k8s_personal}${custom.k8s_other}${custom.aws_prod}${custom.aws_stage}${custom.aws_other}$cmd_duration\
 [\uE0B4](fg:#031f30)
-[╰─❯$character](fg:#1c283d)
+[╰─❯ $character](fg:#1c283d)
 """
 
-# [\uE0B6](#031f30)$jobs\
-# [\uE0B4](fg:#031f30) \
-# # [\uE0B6](#031f30)$status\
-
-right_format = """[\uE0B6](fg:#182847)$localip[\uE0B4](fg:#182847)"""
-
-[status]
-style = 'bg:#031f30'
-# symbol = '🔴'
-# success_symbol = '🟢 SUCCESS'
-format = '[$common_meaning$pipestatus $status$pipestatus_separator$signal_name$maybe_int]($style)'
-map_symbol = true
-pipestatus = true
-disabled = false
-
-[jobs]
-symbol = "+"
-number_threshold = 1
-symbol_threshold = 1
-style = "bg:#031f30"
-format = "[$symbol $number]($style)"
+# IP hangs off the right edge as plain grey text, no pill. In narrow splits
+# a long left line can strand it on its own row. That is the tradeoff.
+right_format = """$localip"""
 
 [username]
 show_always = true
@@ -48,24 +32,24 @@ format = '[$user ]($style)'
 ssh_only = false
 disabled = false
 style = "bg:#434C5E"
-format = "[ @ $hostname $ssh_symbol]($style)"
+format = '[@ $hostname $ssh_symbol]($style)'
 ssh_symbol = "🌏"
 
 [directory]
 style = "bg:#182847"
-format = "[   $read_only $path ]($style)"
-truncate_to_repo=false
-truncation_length = 4
+format = "[ $path$read_only ]($style)"
+truncation_length = 1
 truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
 style = "bg:#33658A"
-format = '[ $symbol   $branch ]($style)'
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
 style = "bg:#33658A"
-format = '[ $all_status $ahead_behind ]($style)'
+# Conditional: a clean repo shows no status pill at all, no empty sliver.
+format = '([$all_status$ahead_behind ]($style))'
 conflicted = "="
 ahead =	"⇡${count}"
 behind = "⇣${count}"
@@ -78,90 +62,95 @@ staged = "+${count}"
 renamed = "»${count}"
 deleted = "${count}"
 
+# Only the venv name. Versions were noise; venv keeps pip out of the wrong env.
+# Zone citizen: padding lives inside the brackets so gaps stay painted.
+[python]
+symbol = '🐍 '
+style = "yellow bg:#031f30"
+format = '([$virtualenv ]($style))'
+
+# Kubernetes env colors. Matching is done against K8S_* env vars (full ARNs,
+# exported in .zshenv, never in this repo). The active context is read with
+# sed straight from the first KUBECONFIG file: ~5ms instead of ~80ms for a
+# kubectl spawn, and correct under multi-file KUBECONFIG for single-file
+# setups like ours. Prod red, stage yellow, personal and anything else green.
+[custom.k8s_prod]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ -n "$K8S_PROD_ISOLATED" ] && [ "$(sed -n "s/^current-context:[[:space:]]*//p" "${KUBECONFIG:-$HOME/.kube/config}" 2>/dev/null | head -n 1 | sed "s/[[:space:]]*$//")" = "$K8S_PROD_ISOLATED" ]'
+format = '[PROD ](bold red bg:#031f30)'
+description = 'prod cluster active'
+
+[custom.k8s_stage]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ -n "$K8S_STAGE_QA" ] && [ "$(sed -n "s/^current-context:[[:space:]]*//p" "${KUBECONFIG:-$HOME/.kube/config}" 2>/dev/null | head -n 1 | sed "s/[[:space:]]*$//")" = "$K8S_STAGE_QA" ]'
+format = '[stage ](bold yellow bg:#031f30)'
+description = 'stage cluster active'
+
+[custom.k8s_personal]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ -n "$K8S_PERSONAL" ] && [ "$(sed -n "s/^current-context:[[:space:]]*//p" "${KUBECONFIG:-$HOME/.kube/config}" 2>/dev/null | head -n 1 | sed "s/[[:space:]]*$//")" = "$K8S_PERSONAL" ]'
+format = '[personal ](bold green bg:#031f30)'
+description = 'personal cluster active'
+
+# Any other active context: shortened region/name, green. Never silent while
+# kubectl points somewhere.
+[custom.k8s_other]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = 'ctx=$(sed -n "s/^current-context:[[:space:]]*//p" "${KUBECONFIG:-$HOME/.kube/config}" 2>/dev/null | head -n 1 | sed "s/[[:space:]]*$//"); case "$ctx" in ""|"$K8S_PROD_ISOLATED"|"$K8S_STAGE_QA"|"$K8S_PERSONAL") exit 1;; esac'
+command = 'ctx=$(sed -n "s/^current-context:[[:space:]]*//p" "${KUBECONFIG:-$HOME/.kube/config}" 2>/dev/null | head -n 1 | sed "s/[[:space:]]*$//") || exit 1; case "$ctx" in "") exit 1;; arn:*) echo "$ctx" | awk -F"[:/]" "{print \$4\"/\"\$NF}";; *) echo "$ctx";; esac'
+format = '[$output ](bold green bg:#031f30)'
+description = 'other cluster active'
+
+# AWS env colors. prod red, stage yellow, default/everything else green.
+# Red shows on profile name alone (fail-visible even with expired creds).
+[custom.aws_prod]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ "${AWS_PROFILE:-}" = prod ]'
+command = 'region="${AWS_REGION:-$AWS_DEFAULT_REGION}"; echo "aws:prod${region:+ $region}"'
+format = '[$output ](bold red bg:#031f30)'
+description = 'prod AWS profile'
+
+[custom.aws_stage]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ "${AWS_PROFILE:-}" = stage ]'
+command = 'region="${AWS_REGION:-$AWS_DEFAULT_REGION}"; echo "aws:stage${region:+ $region}"'
+format = '[$output ](bold yellow bg:#031f30)'
+description = 'stage AWS profile'
+
+[custom.aws_other]
+# sh via stdin (NOT zsh): zsh always sources .zshenv, even for -c, which
+# would reset KUBECONFIG to its base value and blind per-shell overrides.
+shell = ["sh"]
+when = '[ "${AWS_PROFILE:-default}" != prod ] && [ "${AWS_PROFILE:-default}" != stage ] && { test -f "$HOME/.aws/credentials" || test -n "$AWS_ACCESS_KEY_ID"; }'
+command = 'profile="${AWS_PROFILE:-default}"; region="${AWS_REGION:-$AWS_DEFAULT_REGION}"; echo "aws:$profile${region:+ $region}"'
+format = '[$output ](bold green bg:#031f30)'
+description = 'other AWS credentials'
+
 [cmd_duration]
-min_time = 1
+min_time = 2000
 disabled = false
-style = "bg:#182847"
-format = '[ took $duration ]($style)'
+style = "dimmed white bg:#031f30"
+format = '[took $duration ]($style)'
 
 [localip]
 ssh_only = false
-style = "bg:#182847"
-format = "[🔗$localipv4]($style)"
+style = "dimmed white"
+format = '[$localipv4]($style)'
 disabled = false
 
 [character]
-success_symbol = " [🐼](#ffffff)"
-error_symbol = " [✗](#e83535)"
-vicmd_symbol = " [](#78b892)"
-
-[fill]
-symbol = " "
-style = "bold green"
-
-[time]
-disabled = false
-time_format = "%r" # Hour:Minute Format
-style = "bg:#182847"
-format = '[ $time ]($style)'
-
-[c]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol $context ]($style)$path'
-
-[elixir]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = " "
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-symbol = '🐍 '
-style = "bg:#031f30"
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-pyenv_version_name = true
-
-[rust]
-symbol = ""
-style = "bg:#031f30"
-format = '[ $symbol ($version) ]($style)'
+success_symbol = "[🐼](#ffffff)"
+error_symbol = "[✗](#e83535)"
+vicmd_symbol = "[](#78b892)"
