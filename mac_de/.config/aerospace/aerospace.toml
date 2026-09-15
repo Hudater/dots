@@ -89,7 +89,8 @@ on-mode-changed = []
 
 # =============================================================================
 # MODE: main — LOBBY (neutral, no env workspaces)
-# Pick an env: alt-e -> work, alt-shift-e -> personal. Commons (asdf) work here.
+# Pick an env: alt-w -> work (lands W1), alt-e -> personal (lands P1).
+# Commons (asdf) work here.
 # 'main' binding mode must be always presented.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # Fallback value (if you omit the key): mode.main.binding = {}
@@ -151,9 +152,10 @@ on-mode-changed = []
     alt-equal = 'resize smart +50'
 
     # Env entry. Numbers are intentionally NOT bound here (lobby has no env).
-    # NOTE: asymmetry is on purpose — inside work/personal, alt-e means "other env".
-    alt-e = 'mode work'
-    alt-shift-e = 'mode personal'
+    # alt-w always means work, alt-e always means personal, in every mode.
+    # Each key flips the keymap AND lands on that env's home workspace.
+    alt-w = ['mode work', 'workspace W1', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+    alt-e = ['mode personal', 'workspace P1', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
 
     # Commons (shared by both envs): A=Ente Auth, S=Sublime, D=Bitwarden, F=spare.
     alt-a = 'workspace A'
@@ -179,9 +181,8 @@ on-mode-changed = []
 
 # =============================================================================
 # MODE: work — WORK ENV (W1-W0 + commons)
-# Same keys as personal, different workspaces. Toggle with alt-e (lands you in
-# personal mode on the CURRENT workspace — press the number to jump, e.g.
-# alt-e then alt-3 lands P3). Tray icon shows W<n> so env is always visible.
+# Same keys as personal, different workspaces. alt-w stays here (lands W1),
+# alt-e jumps to personal (lands P1). Tray icon shows W<n> so env is always visible.
 # (Key/modifier reference lives in [mode.main.binding] above.)
 # =============================================================================
 [mode.work.binding]
@@ -254,15 +255,15 @@ on-mode-changed = []
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    # Env toggle -> personal (notification keeps the switch visible, zero deps)
-    alt-e = ['mode personal', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
-    alt-shift-e = ['mode personal', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+    # Env keys: alt-w stays in work (lands W1), alt-e jumps to personal (lands P1).
+    alt-w = ['mode work', 'workspace W1', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+    alt-e = ['mode personal', 'workspace P1', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
 
     alt-shift-semicolon = 'mode service'
 
 # =============================================================================
 # MODE: personal — PERSONAL ENV (P1-P0 + commons)
-# Mirror of work. Toggle with alt-e (lands in work mode on current workspace).
+# Mirror of work. alt-e stays here (lands P1), alt-w jumps to work (lands W1).
 # =============================================================================
 [mode.personal.binding]
 
@@ -334,9 +335,9 @@ on-mode-changed = []
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    # Env toggle -> work (notification keeps the switch visible, zero deps)
-    alt-e = ['mode work', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
-    alt-shift-e = ['mode work', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+    # Env keys: alt-e stays in personal (lands P1), alt-w jumps to work (lands W1).
+    alt-w = ['mode work', 'workspace W1', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
+    alt-e = ['mode personal', 'workspace P1', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
 
     alt-shift-semicolon = 'mode service'
 
