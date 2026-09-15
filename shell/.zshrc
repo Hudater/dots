@@ -59,6 +59,9 @@ source ~/.config/zsh/zed-autocomplete.zsh
 #vi mode for zsh
 bindkey -v
 
+###################### IMPORT TO BE SORTED OUT ATER #################################
+source ~/.config/.zshenv_legacy
+
 ##################################Aliases & Functions####################################
 for f in "$HOME/.config/personal/pers-alias.zsh" \
          "$HOME/.config/personal/pers-func.zsh" \
@@ -116,3 +119,4 @@ export PATH="/Users/harshit_tech/.antigravity-ide/antigravity-ide/bin:$PATH"
 # Added by cua-driver-rs installer — see https://github.com/trycua/cua
 export PATH="/Users/harshit_tech/.local/bin:$PATH"
 unset SSH_AUTH_SOCK
+
