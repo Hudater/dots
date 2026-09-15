@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>com.userName.sleepwatcher</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+	</array>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/opt/sleepwatcher/sbin/sleepwatcher</string>
+		<string>-V</string>
+		<string>-s</string>
+		<string>/Users/userName/.sleep</string>
+		<string>-w</string>
+		<string>/Users/userName/.config/wallpaper-randomizer/on-wakeup.sh</string>
+		<string>-W</string>
+		<string>/Users/userName/.config/wallpaper-randomizer/on-displaywakeup.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>

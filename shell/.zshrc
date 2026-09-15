@@ -61,7 +61,7 @@ bindkey -v
 
 ##################################Aliases & Functions####################################
 for f in "$HOME/.config/personal/pers-alias.zsh" \
-         "$HOME/.config/personal/pers-function.zsh" \
+         "$HOME/.config/personal/pers-func.zsh" \
          "$HOME/.config/work/work-alias.zsh" \
          "$HOME/.config/work/work-func.zsh"; do
   [ -f "$f" ] && source "$f"
