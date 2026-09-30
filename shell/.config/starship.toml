@@ -38,7 +38,7 @@ ssh_symbol = "🌏"
 [directory]
 style = "bg:#182847"
 format = "[ $path$read_only ]($style)"
-truncation_length = 1
+truncation_length = 2
 truncation_symbol = "…/"
 
 [git_branch]

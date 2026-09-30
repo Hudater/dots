@@ -244,6 +244,19 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
     alt-shift-9 = 'move-node-to-workspace W9'
     alt-shift-0 = 'move-node-to-workspace W0'
 
+    # Cross-send: same numbers, one extra finger, lands in the OTHER env.
+    # Focus stays put, like every other move binding here.
+    alt-ctrl-1 = 'move-node-to-workspace P1'
+    alt-ctrl-2 = 'move-node-to-workspace P2'
+    alt-ctrl-3 = 'move-node-to-workspace P3'
+    alt-ctrl-4 = 'move-node-to-workspace P4'
+    alt-ctrl-5 = 'move-node-to-workspace P5'
+    alt-ctrl-6 = 'move-node-to-workspace P6'
+    alt-ctrl-7 = 'move-node-to-workspace P7'
+    alt-ctrl-8 = 'move-node-to-workspace P8'
+    alt-ctrl-9 = 'move-node-to-workspace P9'
+    alt-ctrl-0 = 'move-node-to-workspace P0'
+
     # Commons (same targets as every other mode)
     alt-a = 'workspace A'
     alt-s = 'workspace S'
@@ -325,6 +338,19 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
     alt-shift-8 = 'move-node-to-workspace P8'
     alt-shift-9 = 'move-node-to-workspace P9'
     alt-shift-0 = 'move-node-to-workspace P0'
+
+    # Cross-send: same numbers, one extra finger, lands in the OTHER env.
+    # Focus stays put, like every other move binding here.
+    alt-ctrl-1 = 'move-node-to-workspace W1'
+    alt-ctrl-2 = 'move-node-to-workspace W2'
+    alt-ctrl-3 = 'move-node-to-workspace W3'
+    alt-ctrl-4 = 'move-node-to-workspace W4'
+    alt-ctrl-5 = 'move-node-to-workspace W5'
+    alt-ctrl-6 = 'move-node-to-workspace W6'
+    alt-ctrl-7 = 'move-node-to-workspace W7'
+    alt-ctrl-8 = 'move-node-to-workspace W8'
+    alt-ctrl-9 = 'move-node-to-workspace W9'
+    alt-ctrl-0 = 'move-node-to-workspace W0'
 
     # Commons (same targets as every other mode)
     alt-a = 'workspace A'

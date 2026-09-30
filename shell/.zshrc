@@ -120,3 +120,6 @@ export PATH="/Users/harshit_tech/.antigravity-ide/antigravity-ide/bin:$PATH"
 export PATH="/Users/harshit_tech/.local/bin:$PATH"
 unset SSH_AUTH_SOCK
 
+
+# Added by Devin
+export PATH="/Users/harshit_tech/.codeium/windsurf/bin:$PATH"
