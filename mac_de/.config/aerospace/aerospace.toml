@@ -180,6 +180,12 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    # Manual workspace placement: alt-shift-m sends the current ws to the
+    # primary ("Use as" main, follows System Settings at press time),
+    # alt-shift-o sends it to the other display. Assignments stick until
+    # moved again, but reset on AeroSpace restart.
+    alt-shift-m = 'move-workspace-to-monitor main'
+    alt-shift-o = 'move-workspace-to-monitor secondary'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
@@ -272,6 +278,10 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    # Manual workspace placement (same as main mode): M = primary
+    # ("Use as" main), O = other display. Sticks until moved again.
+    alt-shift-m = 'move-workspace-to-monitor main'
+    alt-shift-o = 'move-workspace-to-monitor secondary'
 
     # Env keys: alt-w stays in work, alt-e jumps to personal.
     # goto-env.sh lands on each env's last workspace (W1/P1 if nothing recorded).
@@ -367,6 +377,10 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    # Manual workspace placement (same as main mode): M = primary
+    # ("Use as" main), O = other display. Sticks until moved again.
+    alt-shift-m = 'move-workspace-to-monitor main'
+    alt-shift-o = 'move-workspace-to-monitor secondary'
 
     # Env keys: alt-e stays in personal, alt-w jumps to work.
     # goto-env.sh lands on each env's last workspace (W1/P1 if nothing recorded).
@@ -395,10 +409,10 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 # =============================================================================
 # COMMON: auto-route windows (global, applies in every mode)
 # =============================================================================
-[[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-check-further-callbacks = true
-run = "layout floating"
+# NOTE: Ghostty float rule REMOVED (Nov 2026) — terminal now tiles like every
+# other app on both displays. The old "layout floating" made ghostty keep its
+# fixed macOS frame, which is why it kept wallpaper margins on the MSI.
+# To float a single window again: service mode (alt-shift-;) then f.
 
 # Commons: Ente Auth -> A, Sublime Text -> S, Bitwarden -> D
 [[on-window-detected]]
@@ -414,30 +428,13 @@ if.app-id = "com.bitwarden.desktop"
 run = "move-node-to-workspace D"
 
 # =============================================================================
-# COMMON: monitor assignment (every workspace follows the secondary/main pattern)
+# COMMON: monitor assignment — NONE by design (removed Nov 2026)
+# Workspaces are free agents: park them manually with alt-shift-m (send to
+# primary, follows macOS "Use as") and alt-shift-o (send to the other
+# display), bound identically in main/work/personal modes. Manual
+# assignments stick until moved again, but reset on AeroSpace restart —
+# after a reboot everything starts on the primary; re-scatter with two
+# keystrokes per stray workspace.
+# Do NOT re-add [workspace-to-monitor-force-assignment] here: pinning makes
+# move-workspace-to-monitor a no-op for the forced workspaces.
 # =============================================================================
-[workspace-to-monitor-force-assignment]
-W1 = ['secondary', 'main']
-W2 = ['secondary', 'main']
-W3 = ['secondary', 'main']
-W4 = ['secondary', 'main']
-W5 = ['secondary', 'main']
-W6 = ['secondary', 'main']
-W7 = ['secondary', 'main']
-W8 = ['secondary', 'main']
-W9 = ['secondary', 'main']
-W0 = ['secondary', 'main']
-P1 = ['secondary', 'main']
-P2 = ['secondary', 'main']
-P3 = ['secondary', 'main']
-P4 = ['secondary', 'main']
-P5 = ['secondary', 'main']
-P6 = ['secondary', 'main']
-P7 = ['secondary', 'main']
-P8 = ['secondary', 'main']
-P9 = ['secondary', 'main']
-P0 = ['secondary', 'main']
-A = ['secondary', 'main']
-S = ['secondary', 'main']
-D = ['secondary', 'main']
-F = ['secondary', 'main']

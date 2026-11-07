@@ -11,6 +11,9 @@ keybind = ctrl+shift+up=scroll_page_up
 keybind = ctrl+shift+down=scroll_page_down
 
 #font-family = FiraCode Nerd Font
+# Thicken glyph rendering (macOS font smoothing) — text looks fuller/sharper
+# on the non-Retina 1080p MSI (macOS has no subpixel AA since Mojave).
+font-thicken = true
 font-size = 13
 
 

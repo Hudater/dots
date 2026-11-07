@@ -55,6 +55,8 @@ source ~/.config/zsh/netbird-completion.zsh
 source ~/.config/zsh/coder-autocomplete.zsh
 source ~/.config/zsh/helm-autocomplete.zsh
 source ~/.config/zsh/zed-autocomplete.zsh
+source ~/.config/zsh/boring-registry-autocomplete.zsh
+source ~/.config/zsh/kbcli-autocomplete.zsh
 
 #vi mode for zsh
 bindkey -v
