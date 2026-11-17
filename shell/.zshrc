@@ -38,6 +38,12 @@ setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY          # share across sessions live
 setopt INC_APPEND_HISTORY     # write immediately, not just on exit
 
+# Kiro agent shells log to a separate file, no dedupe, for audit
+if [[ -n "$KIRO_SESSION_ID" ]]; then
+  HISTFILE=~/.zsh_history_agent
+  unsetopt HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS HIST_FIND_NO_DUPS HIST_IGNORE_SPACE
+fi
+
 #Navigate to directories without ls
 setopt autocd
 
@@ -73,7 +79,7 @@ for f in "$HOME/.config/personal/pers-alias.zsh" \
 done
 
 # Created by `pipx` on 2025-03-15 20:39:09
-export PATH="$PATH:/home/putin/.local/bin"
+export PATH="$PATH:/home/putin/.local/bin:$HOME/.krew/bin"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform

@@ -409,10 +409,23 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 # =============================================================================
 # COMMON: auto-route windows (global, applies in every mode)
 # =============================================================================
-# NOTE: Ghostty float rule REMOVED (Nov 2026) — terminal now tiles like every
-# other app on both displays. The old "layout floating" made ghostty keep its
-# fixed macOS frame, which is why it kept wallpaper margins on the MSI.
-# To float a single window again: service mode (alt-shift-;) then f.
+# NEVER-TILE apps (floating) — Ghostty and Finder. AeroSpace does not touch
+# their geometry, so macOS owns the frame: drag-to-half, green-button zoom,
+# native fullscreen and manual resizes all stick. Opening a Ghostty tab shows
+# the tab bar (window-show-tab-bar = auto), which changes the titlebar and
+# makes AeroSpace re-run the workspace layout — that is what used to drag the
+# terminal (and whatever else lived on the workspace) into a tiled split.
+# `layout floating` inside on-window-detected applies to the detected window
+# only (AEROSPACE_WINDOW_ID context), so this does NOT float the workspace.
+# Rules only fire on new windows. For windows that already exist:
+#   aerospace layout --window-id <id> floating
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = "layout floating"
 
 # Commons: Ente Auth -> A, Sublime Text -> S, Bitwarden -> D
 [[on-window-detected]]
