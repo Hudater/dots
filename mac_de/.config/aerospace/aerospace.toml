@@ -60,8 +60,8 @@ persistent-workspaces = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "
                          "A", "S", "D", "F"]
 
 # A callback that runs every time binding mode changes
-# Env switches notify explicitly in their own bindings (no extra deps needed),
-# so this stays empty.
+# Env switches intentionally silent (no display notifications on alt-w / alt-e).
+# Keep this empty.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
@@ -159,8 +159,8 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
     # alt-w always means work, alt-e always means personal, in every mode.
     # Each key flips the keymap, then goto-env.sh lands on that env's last
     # workspace (home base W1/P1 when nothing recorded yet).
-    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
-    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''']
+    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''']
 
     # Commons (shared by both envs): A=Ente Auth, S=Sublime, D=Bitwarden, F=spare.
     alt-a = 'workspace A'
@@ -285,8 +285,8 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 
     # Env keys: alt-w stays in work, alt-e jumps to personal.
     # goto-env.sh lands on each env's last workspace (W1/P1 if nothing recorded).
-    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
-    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''']
+    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''']
 
     alt-shift-semicolon = 'mode service'
 
@@ -384,8 +384,8 @@ exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/record-env.s
 
     # Env keys: alt-e stays in personal, alt-w jumps to work.
     # goto-env.sh lands on each env's last workspace (W1/P1 if nothing recorded).
-    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''', '''exec-and-forget osascript -e 'display notification "WORK env" with title "AeroSpace"' ''']
-    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''', '''exec-and-forget osascript -e 'display notification "PERSONAL env" with title "AeroSpace"' ''']
+    alt-w = ['mode work', '''exec-and-forget ~/.config/aerospace/goto-env.sh work''']
+    alt-e = ['mode personal', '''exec-and-forget ~/.config/aerospace/goto-env.sh personal''']
 
     alt-shift-semicolon = 'mode service'
 
